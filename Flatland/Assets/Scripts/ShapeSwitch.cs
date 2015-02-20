@@ -35,7 +35,8 @@ public class ShapeSwitch : MonoBehaviour {
 		//pickupObject = GetComponent<PickupObject>();
 		held = pickupObject.holdingObject;
 		if (held) {
-			if (Input.GetKeyUp (KeyCode.E)) {
+			if (Input.GetMouseButtonDown(1)) {
+				pickupObject.drop();
 				shapenum = (shapenum + 1) % maxshapes;
 				if (shapenum == 0) {
 					shape0.transform.position = shape2.transform.position;//, shape2.transform.position);
@@ -53,6 +54,7 @@ public class ShapeSwitch : MonoBehaviour {
 					shape1.SetActive (false);
 					shape2.SetActive (true);
 				}
+				pickupObject.switchPickUp();
 			}
 		}
 	}

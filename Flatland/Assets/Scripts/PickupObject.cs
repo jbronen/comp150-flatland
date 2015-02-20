@@ -55,7 +55,26 @@ public class PickupObject : MonoBehaviour {
 
 	}
 
-	void drop()
+	public void switchPickUp () {
+		int x = Screen.width / 2;
+		int y = Screen.height / 2;
+		Ray ray = mainCamera.camera.ScreenPointToRay(new Vector3(x,y));
+		RaycastHit hit;
+		if (Physics.Raycast (ray, out hit)) {
+			if (hit.collider.tag == "Pickup") {
+				float distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
+				
+				if (distanceToObject < distance) {
+					holdingObject = true;
+					carriedObject = hit.collider.gameObject;
+					hit.collider.gameObject.rigidbody.useGravity = false;
+					//hit.collider.gameObject.rigidbody.isKinematic = true;
+				}
+			}
+		}
+	}
+
+	public void drop()
 	{
 		holdingObject = false;
 		carriedObject.rigidbody.useGravity = true;
