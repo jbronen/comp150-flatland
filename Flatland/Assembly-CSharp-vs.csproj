@@ -49,6 +49,7 @@
      <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\GoalArea.cs" />
      <Compile Include="Assets\Scripts\PickupObject.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />

@@ -5,43 +5,49 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour 
 {
 
-	public GameObject pyramid;
-	public GameObject cylinder;
-
 	public Text restartText;
 	public Text puzzleCompleteText;
-
+	public Text diedText;
+	
 	private bool died;
-	private bool puzzleComplete;
 	private bool restart;
-	private bool cylinder_solved;
-	private bool pyramid_solved;
+	private bool square_solved;
 
 
 	// Use this for initialization
 	void Start () 
 	{
 		died = false;
-		puzzleComplete = false;
 		restart = false;
-		cylinder_solved = false;
-		pyramid_solved = false;
+		square_solved = false;
 		restartText.text = "";
 		puzzleCompleteText.text = "";
+		diedText.text = "";
 
 	}
-	
+
+	public void Died ()
+	{
+		diedText.text = "Game Over!";
+		died = true;
+	}
+
+	public void solveSquare() {
+		puzzleCompleteText.text = "You solved the puzzle!";
+		square_solved = true;
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
-		/* cylinder_solved =  some check_cylinder_solution() function
-		 * checks if the square from cylinder is placed in the proper area in the game
-		 * if it has, returns true, and therefore sets cylinder_solved to true
-		 * same thing for pyramid_solved
-		 */
+		// check square solved here
 
-		if (cylinder_solved && pyramid_solved) {
-			puzzleComplete = true;
+		if (square_solved) {
+			restartText.text = "Press 'R' for Restart";
+			restart = true;
+		}
+
+		if (died) {
 			restartText.text = "Press 'R' for Restart";
 			restart = true;
 		}
@@ -56,10 +62,5 @@ public class GameController : MonoBehaviour
 	
 	}
 
-	public void PuzzleComplete ()
-	{
-		puzzleCompleteText.text = "Puzzle Complete!";
-		puzzleComplete = true;
-	}
 }
 

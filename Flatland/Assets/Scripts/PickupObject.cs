@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PickupObject : MonoBehaviour {
 
-	bool holdingObject = false;
+	public bool holdingObject = false;
 	GameObject mainCamera;
 	GameObject carriedObject;
 	public float distance;
