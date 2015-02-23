@@ -1,27 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PickupObject : MonoBehaviour {
-
-	public bool holdingObject = false;
+	
 	GameObject mainCamera;
 	GameObject carriedObject;
+	float distanceToObject;
+
+	public bool holdingObject = false;
 	public float distance;
 	public float smooth;
+	public Text pickupText;
+	public Text transformText;
 
 	void Start()
 	{
+		pickupText.text = "";
+		transformText.text = "";
 		mainCamera = GameObject.FindWithTag ("MainCamera");
 	}
 
 	void Update()
 	{
 		if (holdingObject) {
+			pickupText.text = "";
+			transformText.text = "RMB to Transform";
 			carry(carriedObject);
 			if (Input.GetMouseButtonDown (0)) {
 				drop();
 			}
 		} else {
+			transformText.text = "";
+			checkForPickup();
 			pickup();
 		}
 	}
@@ -29,6 +40,7 @@ public class PickupObject : MonoBehaviour {
 	void carry(GameObject o)
 	{
 		o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
+		//o.transform.rotation = Vector3.Lerp (o.transform.rotation, mainCamera.transform.rotation, Time.deltaTime * smooth);
 	}
 
 	void pickup()
@@ -41,7 +53,7 @@ public class PickupObject : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.collider.tag == "Pickup") {
-					float distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
+					distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
 
 					if (distanceToObject < distance) {
 						holdingObject = true;
@@ -55,14 +67,16 @@ public class PickupObject : MonoBehaviour {
 
 	}
 
-	public void switchPickUp () {
+	public void switchPickup()
+	{
 		int x = Screen.width / 2;
 		int y = Screen.height / 2;
+		
 		Ray ray = mainCamera.camera.ScreenPointToRay(new Vector3(x,y));
 		RaycastHit hit;
 		if (Physics.Raycast (ray, out hit)) {
 			if (hit.collider.tag == "Pickup") {
-				float distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
+				distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
 				
 				if (distanceToObject < distance) {
 					holdingObject = true;
@@ -72,6 +86,7 @@ public class PickupObject : MonoBehaviour {
 				}
 			}
 		}
+		
 	}
 
 	public void drop()
@@ -80,6 +95,27 @@ public class PickupObject : MonoBehaviour {
 		carriedObject.rigidbody.useGravity = true;
 		//carriedObject.rigidbody.isKinematic = false;
 		carriedObject = null;
+	}
 
+	void checkForPickup()
+	{
+		int x = Screen.width / 2;
+		int y = Screen.height / 2;
+
+		Ray ray = mainCamera.camera.ScreenPointToRay (new Vector3 (x, y));
+		RaycastHit hit;
+
+		if (Physics.Raycast (ray, out hit)) {
+			if (hit.collider.tag == "Pickup") {
+				float distanceToObject = Vector3.Distance (transform.position, hit.transform.position);
+				if (distanceToObject < distance) {
+					pickupText.text = "LMB to Pick Up";
+				} else {
+					pickupText.text = "";
+				}
+			} else {
+				pickupText.text = "";
+			}
+		} 
 	}
 }
