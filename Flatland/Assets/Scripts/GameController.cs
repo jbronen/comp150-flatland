@@ -11,7 +11,13 @@ public class GameController : MonoBehaviour
 	
 	private bool died;
 	private bool restart;
-	private bool square_solved;
+
+	private bool cylinderSolved;
+	private bool cubeSolved;
+	private bool pyramidSolved;
+	private bool puzzleComplete;
+
+
 
 
 	// Use this for initialization
@@ -19,11 +25,20 @@ public class GameController : MonoBehaviour
 	{
 		died = false;
 		restart = false;
-		square_solved = false;
+
+		cylinderSolved = false;
+		cubeSolved = false;
+		pyramidSolved = false;
+		puzzleComplete = false;
+
 		restartText.text = "";
 		puzzleCompleteText.text = "";
 		diedText.text = "";
 
+	}
+
+	public bool solved () {
+		return puzzleComplete;
 	}
 
 	public void Died ()
@@ -32,17 +47,32 @@ public class GameController : MonoBehaviour
 		died = true;
 	}
 
-	public void solveSquare() {
+	public void puzzleCompleted () {
 		puzzleCompleteText.text = "You solved the puzzle!";
-		square_solved = true;
+		puzzleComplete = true;
+	}
+
+	public void solvedCylinder () {
+		cylinderSolved = true;
+	}
+
+	public void solvedCube () {
+		cubeSolved = true;
+	}
+
+	public void solvedPyramid () {
+		pyramidSolved = true;
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
 		// check square solved here
+		if (cylinderSolved && cubeSolved && pyramidSolved) {
+			puzzleComplete = true;
+		}
 
-		if (square_solved) {
+		if (puzzleComplete) {
 			restartText.text = "Press 'R' for Restart";
 			restart = true;
 		}

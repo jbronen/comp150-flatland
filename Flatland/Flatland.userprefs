@@ -1,8 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../Survival Shooter Tutorial/Assets/Scripts/Player/PlayerMovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ShapeSwitch.cs">
     <Files>
-      <File FileName="../../Survival Shooter Tutorial/Assets/Scripts/Player/PlayerMovement.cs" Line="26" Column="20" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="73" Column="4" />
+      <File FileName="Assets/Scripts/PickupObject.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/LevelChange.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ShapeSwitch.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PauseMenuScript.cs" Line="47" Column="1" />
+      <File FileName="Assets/Scripts/GoalArea.cs" Line="11" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

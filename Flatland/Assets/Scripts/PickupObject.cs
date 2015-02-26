@@ -67,7 +67,7 @@ public class PickupObject : MonoBehaviour {
 
 	}
 
-	public void switchPickup()
+	public void switchPickUp()
 	{
 		int x = Screen.width / 2;
 		int y = Screen.height / 2;

@@ -40,7 +40,7 @@ public class LevelChange : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider col)
 	{
-		if (gameController.solved ()) {
+		if (gameController.solved()) {
 			if (col.transform.tag == "Player" && !col.isTrigger) {
 				player = col.transform;
 				transistioning = true;

@@ -5,7 +5,7 @@ public class GoalArea : MonoBehaviour {
 
 	private GameController gameController;
 
-	public Collider goalCube;
+	public Collider goalObject;
 
 	void Start ()
 	{
@@ -19,8 +19,16 @@ public class GoalArea : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other == goalCube) {
-			gameController.solveSquare ();
+		if (other == goalObject) {
+			if (goalObject.ToString() == "FullCube") {
+				gameController.solvedCube ();
+			}
+			else if (goalObject.ToString() == "FullCylinder") {
+				gameController.solvedCylinder ();
+			}
+			else if (goalObject.ToString() == "Pyramid") {
+				gameController.solvedPyramid();
+			}
 		}
 	}
 
