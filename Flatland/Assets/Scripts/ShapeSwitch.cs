@@ -3,10 +3,12 @@ using UnityEngine;
 using System.Collections;
 
 public class ShapeSwitch : MonoBehaviour {
-	
+
+	//public string parent_name;
 	public GameObject shape0;
 	public GameObject shape1;
 	public GameObject shape2;
+	string held_name;
 	bool held;
 	int shapenum;
 	int maxshapes = 3;
@@ -27,7 +29,22 @@ public class ShapeSwitch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		held = pickupObject.holdingObject;
+		if (pickupObject.holdingObject) {
+			if (shapenum == 0) {
+				held_name = shape0.ToString();
+			} else if (shapenum == 1) {
+				held_name = shape1.ToString();
+			} else if (shapenum == 2) {
+				held_name = shape2.ToString();
+			}
+			if (pickupObject.carriedObject.ToString() == held_name) {
+				held = true;
+			} else {
+				held = false;
+			}
+		} else {
+			held = false;
+		}
 		if (held) {
 			if (Input.GetMouseButtonDown(1)) {
 				pickupObject.drop();

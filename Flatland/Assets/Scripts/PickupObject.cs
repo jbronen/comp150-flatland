@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PickupObject : MonoBehaviour {
 	
 	GameObject mainCamera;
-	GameObject carriedObject;
+	public GameObject carriedObject;
 	float distanceToObject;
 
 	public bool holdingObject = false;
