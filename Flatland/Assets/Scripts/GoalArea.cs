@@ -13,12 +13,6 @@ public class GoalArea : MonoBehaviour {
 
 	void Start ()
 	{
-		Debug.Log (goalObject.ToString ());
-		if (goalObject.ToString () == "Cube (UnityEngine.GameObject)") {
-			Debug.Log ("It should work.");
-		} else {
-			Debug.Log ("fuck if I know.");
-		}
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController> ();
@@ -31,8 +25,8 @@ public class GoalArea : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log (other.ToString ());
-		Debug.Log (goalCollider.ToString ());
+		//Debug.Log (other.ToString ());
+		//Debug.Log (goalCollider.ToString ());
 		if (other.ToString() == goalCollider.ToString()) {
 			if (goalObject.ToString() == "CubeSquare (UnityEngine.GameObject)" || goalObject.ToString() == "CubeSquare2 (UnityEngine.GameObject)") {
 				gameController.solvedCube ();
