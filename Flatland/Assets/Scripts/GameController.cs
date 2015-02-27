@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour
 	}
 
 	public void solvedCylinder () {
+		Debug.Log ("CALLED SOLVED CYLINDER");
 		cylinderSolved = true;
 	}
 
@@ -84,7 +85,7 @@ public class GameController : MonoBehaviour
 	{
 		// check square solved here
 		if (cylinderSolved && cubeSolved && pyramidSolved) {
-			puzzleComplete = true;
+			puzzleCompleted();
 		}
 
 		if (tutorialCubeSolved) {
