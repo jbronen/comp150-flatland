@@ -57,7 +57,7 @@ public class PauseMenuScript : MonoBehaviour {
 
 	public void QuitGame()
 	{
-		Application.Quit ();
+		Application.LoadLevel ("MainMenu");
 	}
 
 	public void RestartLevel()

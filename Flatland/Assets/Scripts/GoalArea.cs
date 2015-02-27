@@ -29,6 +29,9 @@ public class GoalArea : MonoBehaviour {
 			else if (goalObject.ToString() == "Pyramid") {
 				gameController.solvedPyramid();
 			}
+			else if (goalObject.ToString() == "Cube") {
+				gameController.solvedTutorial();
+			}
 		}
 	}
 

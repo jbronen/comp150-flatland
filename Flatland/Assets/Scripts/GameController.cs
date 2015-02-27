@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 	private bool cylinderSolved;
 	private bool cubeSolved;
 	private bool pyramidSolved;
+	private bool tutorialCubeSolved;
 	private bool puzzleComplete;
 	/*
 	public GameObject cylinder, circle, cyl_rect;
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
 
 		cylinderSolved = false;
 		cubeSolved = false;
+		tutorialCubeSolved = false;
 		pyramidSolved = false;
 		puzzleComplete = false;
 
@@ -66,6 +68,10 @@ public class GameController : MonoBehaviour
 		cubeSolved = true;
 	}
 
+	public void solvedTutorial() {
+		tutorialCubeSolved = true;
+	}
+
 	public void solvedPyramid () {
 		pyramidSolved = true;
 	}
@@ -75,6 +81,10 @@ public class GameController : MonoBehaviour
 	{
 		// check square solved here
 		if (cylinderSolved && cubeSolved && pyramidSolved) {
+			puzzleComplete = true;
+		}
+
+		if (tutorialCubeSolved) {
 			puzzleComplete = true;
 		}
 
