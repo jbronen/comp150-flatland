@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
 	private bool cubeSolved;
 	private bool pyramidSolved;
 	private bool puzzleComplete;
-
+	/*
 	public GameObject cylinder, circle, cyl_rect;
 	public GameObject cube, square, square2;
 	public GameObject pyramid, triang_prism, pyramid_square;
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 	public ShapeSwitch cylinderSwitcher = new ShapeSwitch(circle, cylinder, cyl_rect);
 	public ShapeSwitch cubeSwitcher = new ShapeSwitch(square, cube, square2);
 	public ShapeSwitch pyramidSwitcher = new ShapeSwitch(pyramid, pyramid_square, triang_prism);
-
+	*/
 
 	// Use this for initialization
 	void Start () 
