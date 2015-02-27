@@ -21,7 +21,7 @@ public class PickupObject : MonoBehaviour {
 		mainCamera = GameObject.FindWithTag ("MainCamera");
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		if (holdingObject) {
 			pickupText.text = "";

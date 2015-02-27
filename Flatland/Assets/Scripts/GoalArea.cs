@@ -35,13 +35,13 @@ public class GoalArea : MonoBehaviour {
 		Debug.Log (goalCollider.ToString ());*/
 		Debug.Log ("We are here and it's " + other.ToString ());
 		if (other == goalObject) {
-			//if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)") {
+			if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)") {
 				gameController.solvedCube ();
 				Debug.Log ("SOLVED CUBE");
 				if (!solver.holdingObject) {
 					other.transform.position = goal.transform.position; //Vector3.Lerp (other.transform.position,goal.transform.position, Time.deltaTime * smooth);
 				}
-			//}
+			}
 		else if (other.ToString() == "FullCylinder (UnityEngine.GameObject)") {
 				gameController.solvedCylinder ();
 				if (!solver.holdingObject) {
