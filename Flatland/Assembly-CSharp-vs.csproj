@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GoalArea.cs" />
+     <Compile Include="Assets\Scripts\Level1Portal.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch1.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch2.cs" />
+     <Compile Include="Assets\Scripts\TutorialGC.cs" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/daniel/Desktop/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>

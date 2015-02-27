@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 	public Text restartText;
 	public Text puzzleCompleteText;
 	public Text diedText;
+	public GameObject levelPortal;
 	
 	private bool died;
 	private bool restart;
@@ -30,6 +31,7 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		//levelPortal.transform.position = new Vector3 (-.5f, 16f, 18f);
 		died = false;
 		restart = false;
 
@@ -55,7 +57,8 @@ public class GameController : MonoBehaviour
 		died = true;
 	}
 
-	public void puzzleCompleted () {
+	public void puzzleCompleted () 
+	{
 		puzzleCompleteText.text = "You solved the puzzle!";
 		puzzleComplete = true;
 	}
@@ -85,6 +88,8 @@ public class GameController : MonoBehaviour
 		}
 
 		if (tutorialCubeSolved) {
+			puzzleCompleteText.text = "You solved the puzzle!";
+			levelPortal.transform.position = new Vector3 (-.5f, 6f, 18f);
 			puzzleComplete = true;
 		}
 
