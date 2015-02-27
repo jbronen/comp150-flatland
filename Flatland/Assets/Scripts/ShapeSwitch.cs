@@ -33,19 +33,21 @@ public class ShapeSwitch : MonoBehaviour {
 				pickupObject.drop();
 				shapenum = (shapenum + 1) % maxshapes;
 				if (shapenum == 0) {
-					Debug.Log (gameObject.ToString());
+					Debug.Log ("SHAPE 0 is " + gameObject.ToString());
 					shape0.transform.position = shape2.transform.position;//, shape2.transform.position);
 					shape0.SetActive (true);
 					shape1.SetActive (false);
 					shape2.SetActive (false);
 					pickupObject.hold (shape0);
 				} else if (shapenum == 1) {
+					Debug.Log ("SHAPE 1 is " + gameObject.ToString());
 					shape1.transform.position = shape0.transform.position;
 					shape0.SetActive (false);
 					shape1.SetActive (true);
 					shape2.SetActive (false);
 					pickupObject.hold (shape1);
 				} else if (shapenum == 2) {
+					Debug.Log ("SHAPE 2 is " + gameObject.ToString());
 					shape2.transform.position = shape1.transform.position;
 					shape0.SetActive (false);
 					shape1.SetActive (false);
