@@ -13,6 +13,7 @@ public class PickupObject : MonoBehaviour {
 	public float smooth;
 	public Text pickupText;
 	public Text transformText;
+	public float rotateSpeed;
 
 	void Start()
 	{
@@ -27,6 +28,7 @@ public class PickupObject : MonoBehaviour {
 			pickupText.text = "";
 			transformText.text = "RMB to Transform";
 			carry(carriedObject);
+			rotate(carriedObject);
 			if (Input.GetMouseButtonDown (0)) {
 				drop();
 			}
@@ -41,6 +43,22 @@ public class PickupObject : MonoBehaviour {
 	{
 		o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
 		//o.transform.rotation = Vector3.Lerp (o.transform.rotation, mainCamera.transform.rotation, Time.deltaTime * smooth);
+	}
+
+	void rotate(GameObject o)
+	{
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			o.transform.Rotate (-Vector3.up * rotateSpeed * Time.deltaTime);
+		} 
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			o.transform.Rotate (Vector3.up * rotateSpeed * Time.deltaTime);
+		} 
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			o.transform.Rotate (Vector3.right * rotateSpeed * Time.deltaTime);
+		} 
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			o.transform.Rotate (-Vector3.right * rotateSpeed * Time.deltaTime);
+		}
 	}
 
 	void pickup()
