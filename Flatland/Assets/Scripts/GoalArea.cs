@@ -67,7 +67,7 @@ public class GoalArea : MonoBehaviour {
 			else if (goalObject.ToString() == "Pyramid (UnityEngine.GameObject)") {
 				gameController.solvedPyramid();
 				if (!solver.holdingObject) {
-					other.transform.position = goal.transform.position;
+					other.transform.position = goal.transform.position + new Vector3(0,1,0);
 				}
 			}
 			else if (goalObject.ToString() == "Cube (UnityEngine.GameObject)") {
