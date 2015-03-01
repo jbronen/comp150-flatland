@@ -21,29 +21,38 @@ public class GoalArea : MonoBehaviour {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
-		goalCollider = goalObject.GetComponent<BoxCollider> ();
+		if (goalObject.ToString () == "FullCylinder (UnityEngine.GameObject)") {
+			goalCollider = goalObject.GetComponent<CapsuleCollider> ();
+			Debug.Log (goalCollider.ToString());
+		} else if (goalObject.ToString () == "Pyramid (UnityEngine.GameObject)") {
+			goalCollider = goalObject.GetComponent<MeshCollider> ();
+		}
+		else {
+			goalCollider = goalObject.GetComponent<BoxCollider> ();
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
 		//Debug.Log (other.ToString ());
 		//Debug.Log (goalCollider.ToString ());
 		if (other.ToString() == goalCollider.ToString()) {
-			if (goalObject.ToString() == "CubeSquare (UnityEngine.GameObject)" || goalObject.ToString() == "CubeSquare2 (UnityEngine.GameObject)") {
+			if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)" || goalObject.ToString() == "CubeSquare2 (UnityEngine.GameObject)") {
 				gameController.solvedCube ();
 				if (!solver.holdingObject) {
-					other.transform.position = goal.transform.position; //Vector3.Lerp (other.transform.position,goal.transform.position, Time.deltaTime * smooth);
+					other.transform.position = goal.transform.position;
+					//other.transform.position.z = goal.transform.position.z;
 				}
 			}
-			else if (goalObject.ToString() == "CylinderCube (UnityEngine.GameObject)") {
+			else if (goalObject.ToString() == "FullCylinder (UnityEngine.GameObject)") {
 				gameController.solvedCylinder ();
 				if (!solver.holdingObject) {
-					other.transform.position = goal.transform.position; //Vector3.Lerp (other.transform.position,goal.transform.position, Time.deltaTime * smooth);
+					other.transform.position = goal.transform.position;
 				}
 			}
-			else if (goalObject.ToString() == "PyramidCube (UnityEngine.GameObject)") {
+			else if (goalObject.ToString() == "Pyramid (UnityEngine.GameObject)") {
 				gameController.solvedPyramid();
 				if (!solver.holdingObject) {
-					other.transform.position = goal.transform.position; //Vector3.Lerp (other.transform.position,goal.transform.position, Time.deltaTime * smooth);
+					other.transform.position = goal.transform.position;
 				}
 			}
 			else if (goalObject.ToString() == "Cube (UnityEngine.GameObject)") {

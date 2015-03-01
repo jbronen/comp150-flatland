@@ -10,7 +10,7 @@ public class LevelChange : MonoBehaviour {
 	public int tX,tY,tZ;
 	public int transTime;
 	//float moveR = 0.1f;
-	int tTime;
+	//int tTime;
 	Transform player;
 	private GameController gameController;
 	void Start ()
@@ -44,7 +44,7 @@ public class LevelChange : MonoBehaviour {
 			if (col.transform.tag == "Player" && !col.isTrigger) {
 				player = col.transform;
 				transistioning = true;
-				tTime = transTime;
+				//tTime = transTime;
 				//player.GetComponent<CharacterControls>().transistioning = true;
 			}
 		}
