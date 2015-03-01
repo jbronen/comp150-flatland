@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class DeathByPit : MonoBehaviour {
@@ -23,3 +23,4 @@ public class DeathByPit : MonoBehaviour {
 		}
 	}
 }
+*/

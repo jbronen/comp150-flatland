@@ -85,12 +85,9 @@ public class GameController : MonoBehaviour
 	{
 		// check square solved here
 		if (cylinderSolved && cubeSolved && pyramidSolved) {
-<<<<<<< HEAD
 			puzzleComplete = true;
 			levelPortal.transform.position = new Vector3 (-4.8f, 7.8f, 17.63f);
-=======
 			puzzleCompleted();
->>>>>>> origin/master
 		}
 
 		if (tutorialCubeSolved) {
