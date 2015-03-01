@@ -2,10 +2,20 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GoalArea.cs">
     <Files>
+<<<<<<< HEAD
       <File FileName="Assets/Scripts/LevelChange.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GoalArea.cs" Line="56" Column="6" />
       <File FileName="Assets/Scripts/ShapeSwitch.cs" Line="1" Column="1" />
+=======
+      <File FileName="Assets/Scripts/GameController.cs" Line="89" Column="68" />
+      <File FileName="Assets/Scripts/PauseMenuScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PickupObject.cs" Line="24" Column="12" />
+      <File FileName="Assets/Scripts/LevelChange.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ShapeSwitch.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GoalArea.cs" Line="63" Column="5" />
+      <File FileName="Assets/Scripts/MainMenuScript.cs" Line="1" Column="1" />
+>>>>>>> origin/master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
