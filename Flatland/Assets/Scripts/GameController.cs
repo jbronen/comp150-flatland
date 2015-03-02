@@ -64,12 +64,19 @@ public class GameController : MonoBehaviour
 	}
 
 	public void solvedCylinder () {
-		Debug.Log ("CALLED SOLVED CYLINDER");
-		cylinderSolved = true;
+		if (cylinderSolved == false) {
+			cylinderSolved = true;
+		} else {
+			cylinderSolved = false;
+		}
 	}
 
 	public void solvedCube () {
-		cubeSolved = true;
+		if (cubeSolved == false) {
+			cubeSolved = true;
+		} else {
+			cubeSolved = false;
+		}
 	}
 
 	public void solvedTutorial() {
@@ -77,7 +84,11 @@ public class GameController : MonoBehaviour
 	}
 
 	public void solvedPyramid () {
-		pyramidSolved = true;
+		if (pyramidSolved == false) {
+			pyramidSolved = true;
+		} else {
+			pyramidSolved = false;
+		}
 	}
 
 	// Update is called once per frame

@@ -57,7 +57,7 @@ public class GoalArea : MonoBehaviour {
 					//other.transform.position.z = goal.transform.position.z;
 				}
 			}
-		else if (goalObject.ToString() == "FullCylinder (UnityEngine.GameObject)") {
+			else if (goalObject.ToString() == "FullCylinder (UnityEngine.GameObject)") {
 				//Debug.Log ("SOLVED CYL");
 				gameController.solvedCylinder ();
 				if (!solver.holdingObject) {
@@ -75,6 +75,24 @@ public class GoalArea : MonoBehaviour {
 				if (!solver.holdingObject) {
 					other.transform.position = goal.transform.position; //Vector3.Lerp (other.transform.position,goal.transform.position, Time.deltaTime * smooth);
 				}
+			}
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other == goalCollider) {
+			if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)") {
+				//turn off solved cube
+				gameController.solvedCube();
+			}
+			else if (goalObject.ToString() == "FullCylinder (UnityEngine.GameObject)") {
+				//turn off solved cylinder
+				gameController.solvedCylinder();
+			}
+			else if (goalObject.ToString() == "Pyramid (UnityEngine.GameObject)") {
+				//turn off solved pyramid
+				gameController.solvedPyramid();
 			}
 		}
 	}
