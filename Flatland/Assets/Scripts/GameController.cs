@@ -102,9 +102,11 @@ public class GameController : MonoBehaviour
 		}
 
 		if (tutorialCubeSolved) {
-			puzzleCompleteText.text = "You solved the puzzle!";
-			levelPortal.transform.position = new Vector3 (-.5f, 6f, 18f);
-			puzzleComplete = true;
+			GameObject doorKey = GameObject.FindWithTag ("Door Key");
+			doorKey.transform.position = new Vector3 (5.53f, 0.5f, 21.34f);
+			//puzzleCompleteText.text = "You solved the puzzle!";
+			levelPortal.transform.position = new Vector3 (-.5f, 6f, 40f);
+			//puzzleComplete = true;
 		}
 
 		if (puzzleComplete) {

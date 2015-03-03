@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
+     <Compile Include="Assets\Scripts\DoorKey.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GoalArea.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />

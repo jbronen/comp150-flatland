@@ -6,6 +6,7 @@ public class GoalArea : MonoBehaviour {
 	private GameController gameController;
 	private PickupObject solver;
 
+	//public GameObject tutorialWall;
 	public GameObject goalObject;
 	Collider goalCollider;
 	public float smooth;
@@ -72,6 +73,7 @@ public class GoalArea : MonoBehaviour {
 			}
 			else if (goalObject.ToString() == "Cube (UnityEngine.GameObject)") {
 				gameController.solvedTutorial();
+				//tutorialWall.SetActive (false);
 				if (!solver.holdingObject) {
 					other.transform.position = goal.transform.position; //Vector3.Lerp (other.transform.position,goal.transform.position, Time.deltaTime * smooth);
 				}
