@@ -81,7 +81,7 @@
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/jbronen/Desktop/Spring15/Comp150/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/shri/Desktop/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
