@@ -67,7 +67,7 @@ public class PickupObject : MonoBehaviour {
 			int x = Screen.width / 2;
 			int y = Screen.height / 2;
 
-			Ray ray = mainCamera.camera.ScreenPointToRay(new Vector3(x,y));
+			Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.collider.tag == "Pickup") {
@@ -86,13 +86,13 @@ public class PickupObject : MonoBehaviour {
 	{
 		holdingObject = true;
 		carriedObject = o;
-		o.rigidbody.useGravity = false;
+		o.GetComponent<Rigidbody>().useGravity = false;
 	}
 
 	public void drop()
 	{
 		holdingObject = false;
-		carriedObject.rigidbody.useGravity = true;
+		carriedObject.GetComponent<Rigidbody>().useGravity = true;
 		//carriedObject.rigidbody.isKinematic = false;
 		carriedObject = null;
 	}
@@ -102,7 +102,7 @@ public class PickupObject : MonoBehaviour {
 		int x = Screen.width / 2;
 		int y = Screen.height / 2;
 
-		Ray ray = mainCamera.camera.ScreenPointToRay (new Vector3 (x, y));
+		Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay (new Vector3 (x, y));
 		RaycastHit hit;
 
 		if (Physics.Raycast (ray, out hit)) {

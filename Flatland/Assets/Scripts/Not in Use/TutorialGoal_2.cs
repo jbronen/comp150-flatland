@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CubeGoal : MonoBehaviour {
+public class TutorialGoal2 : MonoBehaviour {
 
 	private GameController gameController;
-	private PickupObject solver;
+	//private PickupObject solver;
 	
 	public Collider goalObject;
 	//public float smooth;
@@ -18,7 +18,7 @@ public class CubeGoal : MonoBehaviour {
 		if (gameController == null) {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
-		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
+		//solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 	}
 	
 	
@@ -26,7 +26,7 @@ public class CubeGoal : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other == goalObject) {
-			gameController.solvedCube ();
+			gameController.solvedTutorial ();
 		}
 	}
 }

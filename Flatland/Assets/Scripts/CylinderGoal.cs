@@ -4,7 +4,7 @@ using System.Collections;
 public class CylinderGoal : MonoBehaviour {
 
 	private GameController gameController;
-	private PickupObject solver;
+	//private PickupObject solver;
 	
 	public Collider goalObject;
 	//public float smooth;
@@ -18,7 +18,7 @@ public class CylinderGoal : MonoBehaviour {
 		if (gameController == null) {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
-		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
+		//solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 	}
 
 

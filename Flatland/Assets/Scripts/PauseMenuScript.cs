@@ -10,7 +10,8 @@ public class PauseMenuScript : MonoBehaviour {
 
 	void Start () {
 		Time.timeScale = 1;
-		Screen.lockCursor = true;
+		Cursor.lockState = CursorLockMode.Locked;
+		//Screen.lockCursor = true;
 	}
 
 	void Update () {
@@ -32,8 +33,9 @@ public class PauseMenuScript : MonoBehaviour {
 		Camera.main.GetComponent<MouseLook> ().enabled = false;
 
 		//show cursor
-		Screen.lockCursor = false;
-		Screen.showCursor = true;
+		Cursor.lockState = CursorLockMode.None;
+		//Screen.lockCursor = false;
+		Cursor.visible = true;
  
 		//enable pause menu
 		pauseMenuPanel.GetComponent<RectTransform>().position = new Vector3(transform.position.x, 300, transform.position.z);
@@ -48,8 +50,9 @@ public class PauseMenuScript : MonoBehaviour {
 		Camera.main.GetComponent<MouseLook> ().enabled = true;
 
 		//hide cursor
-		Screen.showCursor = false;
-		Screen.lockCursor = true;
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
+		//Screen.lockCursor = true;
 
 		//disable pause menu
 		pauseMenuPanel.GetComponent<RectTransform> ().position = new Vector3 (transform.position.x, 1000, transform.position.z);

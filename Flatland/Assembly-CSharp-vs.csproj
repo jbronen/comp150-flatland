@@ -59,14 +59,14 @@
      <Compile Include="Assets\Scripts\Level1Portal.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\CubeGoal.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\CylinderGoal.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\Level1Portal.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\PyramidGoal.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\ShapeSwitch1.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\ShapeSwitch2.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\TutorialGC.cs" />
-     <Compile Include="Assets\Scripts\Not in Use\TutorialGoal.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\CubeGoal_2.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\CylinderGoal_2.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\Level1Portal_2.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\PyramidGoal_2.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\ShapeSwitch1_2.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\ShapeSwitch2_2.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\TutorialGC_2.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\TutorialGoal_2.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
      <Compile Include="Assets\Scripts\PickupObject.cs" />
      <Compile Include="Assets\Scripts\PyramidGoal.cs" />
@@ -78,11 +78,10 @@
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialGoal.cs" />
      <Compile Include="Assets\Scripts\TutorialGC.cs" />
      <Compile Include="Assets\Scripts\TutorialGoal.cs" />
-     <Compile Include="Assets\TutorialGoal.cs" />
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/jbronen/Desktop/Spring15/Comp150/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/Brian/Desktop/School/Game Design/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

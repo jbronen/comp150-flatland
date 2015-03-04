@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class TutorialGC : MonoBehaviour {
+public class TutorialGC2 : MonoBehaviour {
 
 	public Text restartText;
 	public Text puzzleCompleteText;

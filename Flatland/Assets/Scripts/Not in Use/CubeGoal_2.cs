@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level1Portal : MonoBehaviour {
+public class CubeGoal2 : MonoBehaviour {
 
 	private GameController gameController;
+	//private PickupObject solver;
 	
-	void Start () 
+	public Collider goalObject;
+	//public float smooth;
+	
+	void Start ()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
@@ -14,14 +18,15 @@ public class Level1Portal : MonoBehaviour {
 		if (gameController == null) {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
+		//solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 	}
-
-	void OnTriggerEnter(Collider other)
+	
+	
+	
+	void OnTriggerEnter(Collider other) 
 	{
-		if (gameController.solved()) {
-			if (other.transform.tag == "Player") {
-				Application.LoadLevel ("Level1");
-			}
+		if (other == goalObject) {
+			gameController.solvedCube ();
 		}
 	}
 }

@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PyramidGoal : MonoBehaviour {
+public class Level1Portal2 : MonoBehaviour {
 
 	private GameController gameController;
-	private PickupObject solver;
 	
-	public Collider goalObject;
-	//public float smooth;
-	
-	void Start ()
+	void Start () 
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
@@ -18,15 +14,14 @@ public class PyramidGoal : MonoBehaviour {
 		if (gameController == null) {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
-		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 	}
-	
-	
-	
-	void OnTriggerEnter(Collider other) 
+
+	void OnTriggerEnter(Collider other)
 	{
-		if (other == goalObject) {
-			gameController.solvedPyramid ();
+		if (gameController.solved()) {
+			if (other.transform.tag == "Player") {
+				Application.LoadLevel ("Level1");
+			}
 		}
 	}
 }

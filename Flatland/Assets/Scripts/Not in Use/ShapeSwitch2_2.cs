@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ShapeSwitch1 : MonoBehaviour {
+public class ShapeSwitch22 : MonoBehaviour {
 	
 	public GameObject shape0;
 	public GameObject shape1;

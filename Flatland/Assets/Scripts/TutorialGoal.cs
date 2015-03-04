@@ -4,7 +4,7 @@ using System.Collections;
 public class TutorialGoal : MonoBehaviour {
 
 	private GameController gameController;
-	private PickupObject solver;
+	//private PickupObject solver;
 	
 	public Collider goalObject;
 	//public float smooth;
@@ -18,7 +18,7 @@ public class TutorialGoal : MonoBehaviour {
 		if (gameController == null) {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
-		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
+		//solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 	}
 	
 	
@@ -26,14 +26,14 @@ public class TutorialGoal : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other == goalObject) {
-			gameController.tutorialSolution (true);
+			//gameController.tutorialSolution (true);
 		}
 	}
 
 	void OnTriggerExit(Collider other)
 	{
 		if (other == goalObject) {
-			gameController.tutorialSolution (false);
+			//gameController.tutorialSolution (false);
 		}
 	}
 }
