@@ -14,12 +14,20 @@ public class PickupObject : MonoBehaviour {
 	public Text pickupText;
 	public Text transformText;
 	public float rotateSpeed;
+	AudioSource [] sfx;
+	AudioClip sound_effect;
+	//AudioSource source;
 
 	void Start()
 	{
 		pickupText.text = "";
 		transformText.text = "";
 		mainCamera = GameObject.FindWithTag ("MainCamera");
+		sfx = new AudioSource[5];
+		sfx[0] = GameObject.Find ("pickup").GetComponent<AudioSource>();
+		sfx [1] = GameObject.Find ("drop").GetComponent<AudioSource> ();
+		//source = GameObject.FindWithTag ("Sound Effect").GetComponent<AudioSource> ();
+		Debug.Log (GameObject.FindWithTag ("Sound Effect"));
 	}
 
 	void FixedUpdate()
@@ -31,6 +39,7 @@ public class PickupObject : MonoBehaviour {
 			rotate(carriedObject);
 			if (Input.GetMouseButtonDown (0)) {
 				drop();
+				sfx [1].Play ();
 			}
 		} else {
 			transformText.text = "";
@@ -74,6 +83,7 @@ public class PickupObject : MonoBehaviour {
 					distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
 					if (distanceToObject < distance) {
 						hold (hit.collider.gameObject);
+						sfx [0].Play ();
 						//hit.collider.gameObject.rigidbody.isKinematic = true;
 					}
 				}

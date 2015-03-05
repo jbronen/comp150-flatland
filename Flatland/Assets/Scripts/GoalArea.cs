@@ -22,7 +22,7 @@ public class GoalArea : MonoBehaviour {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
-		Debug.Log (goalObject.ToString());
+		//Debug.Log (goalObject.ToString());
 		if (goalObject.ToString () == "FullCylinder (UnityEngine.GameObject)") {
 			goalCollider = goalObject.GetComponent<CapsuleCollider> ();
 			Debug.Log (goalCollider.ToString());
