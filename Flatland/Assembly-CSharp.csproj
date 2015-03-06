@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
+     <Compile Include="Assets\Scripts\BetterShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\CubeGoal.cs" />
      <Compile Include="Assets\Scripts\CylinderGoal.cs" />
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
