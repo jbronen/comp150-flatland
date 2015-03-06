@@ -2,8 +2,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class ShapeSwitch : MonoBehaviour {
-
+public class BetterShapeSwitch : MonoBehaviour {
+	
 	public GameObject parent;
 	public int max_shapes;
 	string parent_name;
@@ -32,9 +32,9 @@ public class ShapeSwitch : MonoBehaviour {
 		shapes = new GameObject[max_shapes];
 		for (int i = 0; i < temp.Length; i++) {
 			/*if (temp [i].gameObject.ToString ().Substring (0,4) == parent_name.Substring(0,4)) {
-                shapes [shapenum] = temp [i].gameObject;
-                shapenum++;
-            }*/
+				shapes [shapenum] = temp [i].gameObject;
+				shapenum++;
+			}*/
 			if (temp[i].gameObject.ToString() != parent_name) {
 				shapes[shapenum] = temp[i].gameObject;
 				shapenum++;
@@ -87,3 +87,4 @@ public class ShapeSwitch : MonoBehaviour {
 		}
 	}
 }
+

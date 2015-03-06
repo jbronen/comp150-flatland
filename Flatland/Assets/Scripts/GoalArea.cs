@@ -24,7 +24,7 @@ public class GoalArea : MonoBehaviour {
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 		//Debug.Log (goalObject.ToString());
 		if (goalObject.ToString () == "FullCylinder (UnityEngine.GameObject)") {
-			goalCollider = goalObject.GetComponent<CapsuleCollider> ();
+			goalCollider = goalObject.GetComponent<MeshCollider> ();
 			Debug.Log (goalCollider.ToString());
 		} else if (goalObject.ToString () == "Pyramid (UnityEngine.GameObject)") {
 			goalCollider = goalObject.GetComponent<MeshCollider> ();
