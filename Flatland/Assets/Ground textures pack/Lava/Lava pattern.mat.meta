@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 42e26e838cb21e944aa7de2aae4edefc
+guid: da50e75f543954f59b12081930bb2a51
 labels:
 - Ground
 - Nature
@@ -10,3 +10,5 @@ labels:
 - Lava
 NativeFormatImporter:
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
