@@ -12,7 +12,7 @@ public class BridgeKey : MonoBehaviour {
 	void Start()
 	{
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
-		keyCollider = keyObject.GetComponent<BoxCollider> ();
+		keyCollider = keyObject.GetComponent<Collider> ();
 	}
 	
 	void OnTriggerEnter(Collider other) 
@@ -22,8 +22,8 @@ public class BridgeKey : MonoBehaviour {
 				bridge.SetActive (true);
 			}
 			if (!solver.holdingObject) {
-				//other.transform.position = keyObject.transform.position;
-				other.transform.position = new Vector3 (keyObject.transform.position.x, keyObject.transform.position.y + .1f, keyObject.transform.position.z);
+				other.transform.position = keyObject.transform.position;
+				//other.transform.position = new Vector3 (keyObject.transform.position.x, keyObject.transform.position.y + .1f, keyObject.transform.position.z);
 			}
 		}
 

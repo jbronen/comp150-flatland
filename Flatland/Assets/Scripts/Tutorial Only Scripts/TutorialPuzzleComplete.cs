@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level2PuzzleComplete : MonoBehaviour {
+public class TutorialPuzzleComplete : MonoBehaviour {
 
 	private GameController gameController;
-
-	public GameObject step1;
-	public GameObject step2;
-	public GameObject step3;
-
+	
+	public GameObject door;
+	
 	void Start ()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
@@ -19,15 +17,11 @@ public class Level2PuzzleComplete : MonoBehaviour {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
 	}
-
+	
 	void Update()
 	{
-		if (step1.activeSelf == true) {
-			if (step2.activeSelf == true) {
-				if (step3.activeSelf == true) {
-					gameController.puzzleCompleted();
-				}
-			}
+		if (door.activeSelf == false) {
+			gameController.puzzleCompleted();
 		}
-	}	
+	}
 }

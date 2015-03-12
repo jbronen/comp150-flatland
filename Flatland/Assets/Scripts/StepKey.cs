@@ -12,7 +12,7 @@ public class StepKey : MonoBehaviour {
 	void Start()
 	{
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
-		keyCollider = keyObject.GetComponent<BoxCollider> ();
+		keyCollider = keyObject.GetComponent<Collider> ();
 	}
 	
 	void OnTriggerEnter(Collider other) 
@@ -21,11 +21,13 @@ public class StepKey : MonoBehaviour {
 			if (step.activeSelf == false) {
 				step.SetActive (true);
 			}
+		}
+		if (other.tag == "Pickup") {
 			if (!solver.holdingObject) {
-				//other.transform.position = new Vector3 (keyObject.transform.position.x, keyObject.transform.position.y + .1f, keyObject.transform.position.z);
+				other.transform.position = keyObject.transform.position;
 			}
 		}
-
+		
 	}
 	
 	void OnTriggerExit(Collider other)
