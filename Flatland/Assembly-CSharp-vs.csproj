@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\CylinderGoal.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\PyramidGoal.cs" />
      <Compile Include="Assets\Scripts\Level1Portal.cs" />
+     <Compile Include="Assets\Scripts\Level2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\Not in Use\CubeGoal_2.cs" />
