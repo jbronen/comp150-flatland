@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch1.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch2.cs" />
+     <Compile Include="Assets\Scripts\StepKey.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\DeathByPit.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\DoorKey.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\Level1Portal.cs" />

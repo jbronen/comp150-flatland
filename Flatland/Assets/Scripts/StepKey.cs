@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BridgeKey : MonoBehaviour {
+public class StepKey : MonoBehaviour {
 
 	public GameObject keyObject;
-	public GameObject bridge;
+	public GameObject step;
 	
 	private PickupObject solver;
 	Collider keyCollider;
@@ -18,21 +18,20 @@ public class BridgeKey : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other == keyCollider) {
-			if (bridge.activeSelf == false) {
-				bridge.SetActive (true);
+			if (step.activeSelf == false) {
+				step.SetActive (true);
 			}
 			if (!solver.holdingObject) {
-				//other.transform.position = keyObject.transform.position;
-				other.transform.position = new Vector3 (keyObject.transform.position.x, keyObject.transform.position.y + .1f, keyObject.transform.position.z);
+				//other.transform.position = new Vector3 (keyObject.transform.position.x, keyObject.transform.position.y + .1f, keyObject.transform.position.z);
 			}
 		}
 
 	}
-
+	
 	void OnTriggerExit(Collider other)
 	{
 		if (other == keyCollider) {
-			bridge.SetActive (false);
+			step.SetActive (false);
 		}
 	}
 }
