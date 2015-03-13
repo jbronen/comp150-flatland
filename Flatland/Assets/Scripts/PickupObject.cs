@@ -82,6 +82,7 @@ public class PickupObject : MonoBehaviour {
 				if (hit.collider.tag == "Pickup") {
 					distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
 					if (distanceToObject < distance) {
+						hit.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 						hold (hit.collider.gameObject);
 						sfx [0].Play ();
 						//hit.collider.gameObject.rigidbody.isKinematic = true;
@@ -103,6 +104,7 @@ public class PickupObject : MonoBehaviour {
 	{
 		holdingObject = false;
 		carriedObject.GetComponent<Rigidbody>().useGravity = true;
+		carriedObject.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 		//carriedObject.rigidbody.isKinematic = false;
 		carriedObject = null;
 	}

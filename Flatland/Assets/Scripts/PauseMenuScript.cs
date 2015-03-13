@@ -11,6 +11,7 @@ public class PauseMenuScript : MonoBehaviour {
 	void Start () {
 		Time.timeScale = 1;
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		//Screen.lockCursor = true;
 	}
 
@@ -38,7 +39,7 @@ public class PauseMenuScript : MonoBehaviour {
 		Cursor.visible = true;
  
 		//enable pause menu
-		pauseMenuPanel.GetComponent<RectTransform>().position = new Vector3(transform.position.x, 300, transform.position.z);
+		pauseMenuPanel.GetComponent<RectTransform>().position = new Vector3(transform.position.x, 302, transform.position.z);
 	}
 
 	public void UnpauseGame()
