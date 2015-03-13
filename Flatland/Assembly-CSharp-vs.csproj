@@ -52,7 +52,6 @@
      <Compile Include="Assets\Scripts\CubeGoal.cs" />
      <Compile Include="Assets\Scripts\CylinderGoal.cs" />
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
-     <Compile Include="Assets\Scripts\DoorKey.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GoalArea.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\CubeGoal.cs" />
@@ -82,13 +81,17 @@
      <Compile Include="Assets\Scripts\ShapeSwitch1.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch2.cs" />
      <Compile Include="Assets\Scripts\StepKey.cs" />
+     <Compile Include="Assets\Scripts\Tutorial Only Scripts\DeathByPit.cs" />
+     <Compile Include="Assets\Scripts\Tutorial Only Scripts\DoorKey.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\Level1Portal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialGoal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialPuzzleComplete.cs" />
+     <Compile Include="Assets\Scripts\TutorialGC.cs" />
+     <Compile Include="Assets\Scripts\TutorialGoal.cs" />
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/daniel/Desktop/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/jbronen/Desktop/Spring15/Comp150/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
