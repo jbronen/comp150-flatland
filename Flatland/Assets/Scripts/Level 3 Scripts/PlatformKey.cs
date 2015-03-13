@@ -12,10 +12,10 @@ public class PlatformKey : MonoBehaviour {
 	
 	void Start()
 	{
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController> ();
-		}
+//		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+//		if (gameControllerObject != null) {
+//			gameController = gameControllerObject.GetComponent <GameController> ();
+//		}
 		keyCollider = keyObject.GetComponent<BoxCollider> ();
 		platformMover = platform.GetComponent<MovingPlatform> ();
 	}
