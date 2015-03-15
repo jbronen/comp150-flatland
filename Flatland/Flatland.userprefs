@@ -1,18 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Level2 Only Scripts/Level2PuzzleComplete.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PickupObject.cs">
     <Files>
-      <File FileName="Assets/Scripts/DeathByPit.cs" Line="27" Column="19" />
-      <File FileName="Assets/Scripts/BridgeKey.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BridgeKey.cs" Line="64" Column="30" />
       <File FileName="Assets/Scripts/StepKey.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level2 Only Scripts/Level2PuzzleComplete.cs" Line="23" Column="15" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="100" Column="69" />
+      <File FileName="Assets/Scripts/Level2 Only Scripts/Level2PuzzleComplete.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Tutorial Only Scripts/TutorialPuzzleComplete.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PauseMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PickupObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PickupObject.cs" Line="134" Column="1" />
       <File FileName="Assets/Scripts/Level 3 Scripts/PlatformKey.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GoalArea.cs" Line="1" Column="1" />
-      <File FileName="Assets/ResetShapePosition.cs" Line="20" Column="2" />
+      <File FileName="Assets/Scripts/DoorKey.cs" Line="12" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
