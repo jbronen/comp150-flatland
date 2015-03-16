@@ -34,7 +34,7 @@ public class PickupObject : MonoBehaviour {
 	{
 		if (holdingObject) {
 			pickupText.text = "";
-			transformText.text = "RMB to Transform";
+			transformText.text = "Right Click to Change";
 			carry(carriedObject);
 			rotate(carriedObject);
 			if (Input.GetMouseButtonDown (0)) {
@@ -121,7 +121,7 @@ public class PickupObject : MonoBehaviour {
 			if (hit.collider.tag == "Pickup") {
 				float distanceToObject = Vector3.Distance (transform.position, hit.transform.position);
 				if (distanceToObject < distance) {
-					pickupText.text = "LMB to Pick Up";
+					pickupText.text = "Left Click to Pick Up";
 				} else {
 					pickupText.text = "";
 				}

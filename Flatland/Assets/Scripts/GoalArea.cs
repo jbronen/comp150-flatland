@@ -5,8 +5,7 @@ public class GoalArea : MonoBehaviour {
 
 	private GameController gameController;
 	private PickupObject solver;
-
-	//public GameObject tutorialWall;
+	
 	public GameObject goalObject;
 	Collider goalCollider;
 	public float smooth;
@@ -22,7 +21,6 @@ public class GoalArea : MonoBehaviour {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
-		//Debug.Log (goalObject.ToString());
 		if (goalObject.ToString () == "FullCylinder (UnityEngine.GameObject)") {
 			goalCollider = goalObject.GetComponent<MeshCollider> ();
 			Debug.Log (goalCollider.ToString());
@@ -34,21 +32,7 @@ public class GoalArea : MonoBehaviour {
 		}
 	}
 
-	/*void OnTriggerEnter(Collider other) {
-		//Debug.Log (other.ToString ());
-		//Debug.Log (goalCollider.ToString ());
-		if (other.ToString() == goalCollider.ToString()) {
-			if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)" || goalObject.ToString() == "CubeSquare2 (UnityEngine.GameObject)") {
-		goalCollider = goalObject.GetComponent<BoxCollider> ();
-			}
-		}
-	}*/
-
 	void OnTriggerEnter(Collider other) {
-		/*Debug.Log (other.ToString ());
-		Debug.Log (goalCollider.ToString ());*/
-		//Debug.Log ("We are here and it's " + other.ToString ());
-		//Debug.Log (goalCollider.ToString ());
 		if (other == goalCollider) {
 			if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)") {
 				gameController.solvedCube ();
@@ -69,13 +53,6 @@ public class GoalArea : MonoBehaviour {
 				gameController.solvedPyramid();
 				if (!solver.holdingObject) {
 					other.transform.position = goal.transform.position + new Vector3(0,1,0);
-				}
-			}
-			else if (goalObject.ToString() == "Cube (UnityEngine.GameObject)") {
-				gameController.solvedTutorial();
-				//tutorialWall.SetActive (false);
-				if (!solver.holdingObject) {
-					other.transform.position = goal.transform.position; //Vector3.Lerp (other.transform.position,goal.transform.position, Time.deltaTime * smooth);
 				}
 			}
 		}

@@ -6,6 +6,7 @@ public class TutorialPuzzleComplete : MonoBehaviour {
 	private GameController gameController;
 	
 	public GameObject door;
+	public GameObject levelPortal;
 	
 	void Start ()
 	{
@@ -22,6 +23,7 @@ public class TutorialPuzzleComplete : MonoBehaviour {
 	{
 		if (door.activeSelf == false) {
 			gameController.puzzleCompleted();
+			levelPortal.transform.position = new Vector3 (-.5f, 6f, 40f);
 		}
 	}
 }
