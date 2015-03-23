@@ -54,11 +54,11 @@
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\CubeGoal.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\CylinderGoal.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\PyramidGoal.cs" />
+     <Compile Include="Assets\Scripts\Level 2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\Freezer.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\LinkedShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\PlatformKey.cs" />
-     <Compile Include="Assets\Scripts\Level2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\NoMagic.cs" />
