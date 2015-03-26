@@ -1,8 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GUIFont.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets/GUIFont.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/GoalArea.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DoorKey.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ObjectAppearTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Tutorial Only Scripts/TutorialPuzzleComplete.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DeathByPit.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ObjectDisappearTrigger.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
