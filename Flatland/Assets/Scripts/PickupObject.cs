@@ -13,6 +13,7 @@ public class PickupObject : MonoBehaviour {
 	public float smooth;
 	public Text pickupText;
 	public Text transformText;
+	public Text reticle;
 	public float rotateSpeed;
 	AudioSource [] sfx;
 	AudioClip sound_effect;
@@ -59,7 +60,7 @@ public class PickupObject : MonoBehaviour {
 	{
 		if (holdingObject) {
 			pickupText.text = "";
-			transformText.text = "Right-Click to Transform";
+			transformText.text = "Right-Click to Change";
 			carry(carriedObject);
 			//carriedObject.transform.LookAt(new Vector3(mainCamera.transform.position.x,carriedObject.transform.position.y,mainCamera.transform.position.z));
 			//checkForRotate();
@@ -233,12 +234,14 @@ public class PickupObject : MonoBehaviour {
 			if (hit.collider.tag == "Pickup") {
 				float distanceToObject = Vector3.Distance (transform.position, hit.transform.position);
 				if (distanceToObject < distance) {
+					reticle.color = Color.green; 
 					pickupText.text = "Left-Click to Pick Up";
 				}  else {
 					pickupText.text = "";
 				}
 			}  else {
 				pickupText.text = "";
+				reticle.color = Color.red;
 			}
 		}  
 	}

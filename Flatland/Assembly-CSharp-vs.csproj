@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\PyramidGoal.cs" />
      <Compile Include="Assets\Scripts\Level 2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\Freezer.cs" />
+     <Compile Include="Assets\Scripts\Level 3 Scripts\Level3PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\LinkedShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Level 3 Scripts\PlatformKey.cs" />
