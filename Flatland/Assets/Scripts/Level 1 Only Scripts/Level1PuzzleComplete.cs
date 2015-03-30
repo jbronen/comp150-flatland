@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level2PuzzleComplete : MonoBehaviour {
+public class Level1PuzzleComplete : MonoBehaviour {
 
 	private GameController gameController;
 
