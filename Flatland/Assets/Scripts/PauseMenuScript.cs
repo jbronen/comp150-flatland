@@ -4,6 +4,9 @@ using System.Collections;
 public class PauseMenuScript : MonoBehaviour {
 
 	public GameObject pauseMenuPanel;
+	public GameObject controlsMenuPanel;
+	public GameObject helpMenuPanel;
+	public GameObject hintsMenuPanel;
 	public GameObject player;
 
 	private bool isPaused = false;
@@ -12,7 +15,6 @@ public class PauseMenuScript : MonoBehaviour {
 		Time.timeScale = 1;
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		//Screen.lockCursor = true;
 	}
 
 	void Update () {
@@ -39,7 +41,7 @@ public class PauseMenuScript : MonoBehaviour {
 		Cursor.visible = true;
  
 		//enable pause menu
-		pauseMenuPanel.GetComponent<RectTransform>().position = new Vector3(transform.position.x, 302, transform.position.z);
+		enablePauseMenu ();
 	}
 
 	public void UnpauseGame()
@@ -56,7 +58,57 @@ public class PauseMenuScript : MonoBehaviour {
 		//Screen.lockCursor = true;
 
 		//disable pause menu
-		pauseMenuPanel.GetComponent<RectTransform> ().position = new Vector3 (transform.position.x, 1000, transform.position.z);
+		disablePauseMenu ();
+	}
+
+	public void enablePauseMenu()
+	{
+		pauseMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, 0);
+		//pauseMenuPanel.GetComponent<RectTransform> ().position = new Vector3 (transform.position.x, 302, transform.position.z);
+	}
+
+	public void disablePauseMenu()
+	{
+		pauseMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, Screen.height * 2);
+		//pauseMenuPanel.GetComponent<RectTransform> ().position = new Vector3 (transform.position.x, 1000, transform.position.z);
+	}
+
+	public void enableControlsMenu()
+	{
+		disableHelpMenu ();
+		disablePauseMenu ();
+		controlsMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, 0);
+	}
+
+	public void disableControlsMenu()
+	{
+		enableHelpMenu ();
+		controlsMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, Screen.height * 2);
+	}
+
+	public void enableHelpMenu()
+	{
+		disablePauseMenu ();
+		helpMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, 0);
+	}
+	
+	public void disableHelpMenu()
+	{
+		enablePauseMenu ();
+		helpMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, Screen.height * 2);
+	}
+
+	public void enableHintsMenu()
+	{
+		disableHelpMenu ();
+		disablePauseMenu ();
+		hintsMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, 0);
+	}
+	
+	public void disableHintsMenu()
+	{
+		enableHelpMenu ();
+		hintsMenuPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0, Screen.height * 2);
 	}
 
 	public void QuitGame()
