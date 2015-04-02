@@ -51,15 +51,13 @@
      <Compile Include="Assets\Scripts\DropPlatform.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GoalArea.cs" />
-     <Compile Include="Assets\Scripts\Level 1 Only Scripts\CubeGoal.cs" />
-     <Compile Include="Assets\Scripts\Level 1 Only Scripts\CylinderGoal.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\Level1PuzzleComplete.cs" />
-     <Compile Include="Assets\Scripts\Level 1 Only Scripts\PyramidGoal.cs" />
      <Compile Include="Assets\Scripts\Level 2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\Freezer.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\Level3PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\LinkedShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\PlatformKey.cs" />
+     <Compile Include="Assets\Scripts\Level 5 Only Scripts\MiniPuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
