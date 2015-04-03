@@ -67,6 +67,7 @@ public class GoalArea : MonoBehaviour {
 	{
 		if (other == goalCollider) {
 			solved = false;
+			solvedGoal.unSolved();
 //			if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)") {
 //				//turn off solved cube
 //				gameController.solvedCube();

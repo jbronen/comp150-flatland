@@ -5,25 +5,32 @@ public class SolvedGoal : MonoBehaviour {
 
 	public Material newMaterial;
 
+	Material oldMaterial;
 	Renderer rend;
-	bool goalSolved;
+//	bool goalSolved;
 
 	void Start() 
 	{
-		goalSolved = false;
+		//goalSolved = false;
 		rend = GetComponent<Renderer> ();
+		oldMaterial = rend.material;
 	}
 
-	void Update () 
-	{
-		if (goalSolved) {
-			rend.material = newMaterial;
-		}
-	}
+//	void Update () 
+//	{
+//		if (goalSolved) {
+//			rend.material = newMaterial;
+//		}
+//	}
 
 	public void solved()
 	{
-		goalSolved = true;
+		//goalSolved = true;
 		rend.material = newMaterial;
+	}
+
+	public void unSolved()
+	{
+		rend.material = oldMaterial;
 	}
 }

@@ -29,6 +29,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	{
 		if (timerOn) {
 			if (timeLeft == 0) {
+				solvedGoal.unSolved();
 				appearingObject.SetActive (false);
 				resetTime();
 			}
@@ -69,6 +70,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	{
 		if (toggle) {
 			if (other == keyCollider) {
+				solvedGoal.unSolved();
 				appearingObject.SetActive (false);
 				resetTime ();
 			}

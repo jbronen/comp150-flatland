@@ -29,6 +29,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	{
 		if (timerOn) {
 			if (timeLeft == 0) {
+				solvedGoal.unSolved();
 				disappearingObject.SetActive (true);
 				resetTime();
 			}
@@ -69,6 +70,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	{
 		if (toggle) {
 			if (other == keyCollider) {
+				solvedGoal.unSolved();
 				disappearingObject.SetActive (true);
 				resetTime ();
 			}
