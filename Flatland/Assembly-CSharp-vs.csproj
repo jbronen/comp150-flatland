@@ -61,14 +61,13 @@
      <Compile Include="Assets\Scripts\LevelChange.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
-     <Compile Include="Assets\Scripts\NoMagic.cs" />
      <Compile Include="Assets\Scripts\Not in Use\AutoMovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Not in Use\BetterShapeSwitch.cs" />
+     <Compile Include="Assets\Scripts\Not in Use\ResetShapePosition.cs" />
      <Compile Include="Assets\Scripts\ObjectAppearTrigger.cs" />
      <Compile Include="Assets\Scripts\ObjectDisappearTrigger.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
      <Compile Include="Assets\Scripts\PickupObject.cs" />
-     <Compile Include="Assets\Scripts\ResetShapePosition.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\SolvedGoal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\Level1Portal.cs" />
@@ -77,7 +76,7 @@
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/Brian/Desktop/School/Game Design/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/daniel/Desktop/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -23,7 +23,6 @@ public class PickupObject : MonoBehaviour {
 	int rotation_num;
 	int top, right, front;
 	Vector4 rotation_vec;
-	//AudioSource source;
 	
 	void Start()
 	{
