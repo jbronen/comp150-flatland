@@ -220,6 +220,8 @@ public class PickupObject : MonoBehaviour {
 		carriedObject.layer = 9;
 		carriedObject.GetComponent<Rigidbody>().useGravity = true;
 		carriedObject.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+		carriedObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+		carriedObject.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
 		//carriedObject.rigidbody.isKinematic = false;
 		carriedObject = null;
 	}

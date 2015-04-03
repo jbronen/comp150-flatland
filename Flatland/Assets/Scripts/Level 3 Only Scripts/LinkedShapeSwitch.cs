@@ -85,12 +85,14 @@ public class LinkedShapeSwitch : MonoBehaviour {
 			shapes [0].SetActive (true);
 			shapes [shapes.Length - 1].SetActive (false);
 			pickupObject.hold (shapes [0]);
+			shapes[0].layer = 8;
 		} else {
 			//Debug.Log ("SHAPE 1 is " + gameObject.ToString());
 			shapes [shapenum].transform.position = shapes [shapenum - 1].transform.position;
 			shapes [shapenum - 1].SetActive (false);
 			shapes [shapenum].SetActive (true);
 			pickupObject.hold (shapes [shapenum]);
+			shapes[shapenum].layer = 8;
 		}
 	}
 

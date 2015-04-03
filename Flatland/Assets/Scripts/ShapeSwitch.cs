@@ -72,16 +72,19 @@ public class ShapeSwitch : MonoBehaviour {
 				Debug.Log (shapes[0].ToString());
 				if (shapenum == 0) {
 					//Debug.Log ("SHAPE 0 is " + gameObject.ToString());
-					shapes[0].transform.position = shapes[shapes.Length-1].transform.position;
+					shapes[0].transform.position = shapes[shapes.Length-1].transform.position + new Vector3(0,shapes[0].transform.localScale.y,0);
 					shapes[0].SetActive (true);
 					shapes[shapes.Length-1].SetActive (false);
 					pickupObject.hold (shapes[0]);
+					shapes[0].layer = 8;
+
 				} else {
 					//Debug.Log ("SHAPE 1 is " + gameObject.ToString());
 					shapes[shapenum].transform.position = shapes[shapenum-1].transform.position;
 					shapes[shapenum-1].SetActive (false);
 					shapes[shapenum].SetActive (true);
 					pickupObject.hold (shapes[shapenum]);
+					shapes[shapenum].layer = 8;
 				}
 			}
 		}
