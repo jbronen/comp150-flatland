@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\PickupObject.cs" />
      <Compile Include="Assets\Scripts\ResetShapePosition.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
+     <Compile Include="Assets\Scripts\SolvedGoal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\Level1Portal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialGoal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialPuzzleComplete.cs" />

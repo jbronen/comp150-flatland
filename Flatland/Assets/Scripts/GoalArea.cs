@@ -6,6 +6,7 @@ public class GoalArea : MonoBehaviour {
 //	private GameController gameController;
 //	private PickupObject solver;
 	Collider goalCollider;
+	SolvedGoal solvedGoal;
 
 	public bool solved = false;
 	public GameObject goalObject;
@@ -14,6 +15,7 @@ public class GoalArea : MonoBehaviour {
 
 	void Start ()
 	{
+		solvedGoal = GetComponent<SolvedGoal>();
 //		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 //		if (gameControllerObject != null) {
 //			gameController = gameControllerObject.GetComponent <GameController> ();
@@ -36,6 +38,7 @@ public class GoalArea : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other == goalCollider) {
 			solved = true;
+			solvedGoal.solved();
 //			if (goalObject.ToString() == "FullCube (UnityEngine.GameObject)") {
 //				gameController.solvedCube ();
 //				//Debug.Log ("SOLVED CUBE");

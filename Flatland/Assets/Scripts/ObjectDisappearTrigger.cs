@@ -15,9 +15,11 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	float timeLeft;
 	bool timerOn;
 	Collider keyCollider;
+	SolvedGoal solvedGoal;
 	
 	void Start()
 	{
+		solvedGoal = GetComponent<SolvedGoal> ();
 		timerOn = false;
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 		keyCollider = keyObject.GetComponent<Collider> ();
@@ -47,6 +49,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other == keyCollider) {
+			solvedGoal.solved ();
 			disappearingObject.SetActive (false);
 			if (timed) {
 				timeLeft = timeLimit;

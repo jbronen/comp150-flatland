@@ -15,12 +15,14 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	float timeLeft;
 	bool timerOn;
 	Collider keyCollider;
+	SolvedGoal solvedGoal;
 	
 	void Start()
 	{
 		timerOn = false;
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 		keyCollider = keyObject.GetComponent<Collider> ();
+		solvedGoal = GetComponent<SolvedGoal> ();
 	}
 	
 	void Update()
@@ -48,6 +50,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	{
 		if (other == keyCollider) {
 			appearingObject.SetActive (true);
+			solvedGoal.solved ();
 			if (timed) {
 				timeLeft = timeLimit;
 				timerOn = true;
@@ -55,7 +58,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 			}
 			if (other.tag != "Player") {
 				if (!solver.holdingObject) {
-					other.transform.position = goalArea.transform.position;
+					//other.transform.position = goalArea.transform.position;
 				}
 			}
 		}
