@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Background Images\NewBehaviourScript.cs" />
      <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
      <Compile Include="Assets\Scripts\DropPlatform.cs" />

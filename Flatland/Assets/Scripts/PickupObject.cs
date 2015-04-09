@@ -15,6 +15,8 @@ public class PickupObject : MonoBehaviour {
 	public Text transformText;
 	public Text reticle;
 	public float rotateSpeed;
+
+	bool hitPickup;
 	AudioSource [] sfx;
 	AudioClip sound_effect;
 	Vector3 look_at_vector;
@@ -26,6 +28,7 @@ public class PickupObject : MonoBehaviour {
 	
 	void Start()
 	{
+		hitPickup = false;
 		pickupText.text = "";
 		transformText.text = "";
 		mainCamera = GameObject.FindWithTag ("MainCamera");
@@ -193,6 +196,7 @@ public class PickupObject : MonoBehaviour {
 				if (hit.collider.tag == "Pickup") {
 					distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
 					if (distanceToObject < distance) {
+						hitPickup = true;
 						hit.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 						hold (hit.collider.gameObject);
 						hit.collider.gameObject.layer = 8;
@@ -205,6 +209,11 @@ public class PickupObject : MonoBehaviour {
 		
 		
 	}
+
+	public bool pickingUp()
+	{
+		return hitPickup;
+	}
 	
 	public void hold (GameObject o)
 	{
@@ -215,6 +224,7 @@ public class PickupObject : MonoBehaviour {
 	
 	public void drop()
 	{
+		hitPickup = false;
 		holdingObject = false;
 		carriedObject.layer = 9;
 		carriedObject.GetComponent<Rigidbody>().useGravity = true;

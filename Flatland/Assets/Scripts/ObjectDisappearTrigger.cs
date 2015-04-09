@@ -16,24 +16,42 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	bool timerOn;
 	Collider keyCollider;
 	SolvedGoal solvedGoal;
+	bool solved;
+	Collider goalCollider;
 	
 	void Start()
 	{
+		solved = false;
 		solvedGoal = GetComponent<SolvedGoal> ();
 		timerOn = false;
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 		keyCollider = keyObject.GetComponent<Collider> ();
+		goalCollider = goalArea.GetComponent<Collider> ();
 	}
 	
 	void Update()
 	{
 		if (timerOn) {
 			if (timeLeft == 0) {
+				solved = false;
 				solvedGoal.unSolved();
 				disappearingObject.SetActive (true);
 				resetTime();
 			}
 		}
+
+		if (solved) {
+			hold (keyCollider);
+		}
+
+		if (solver.pickingUp ()) {
+			solved = false;
+		}
+	}
+
+	void hold(Collider other)
+	{
+		other.transform.position = goalCollider.transform.position;
 	}
 	
 	void resetTime()
@@ -58,10 +76,11 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 				InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
 			}
 			if (other.tag != "Player") {
-				if (!solver.holdingObject) {
-					other.transform.position = goalArea.transform.position;
-			
+				if (solver.holdingObject) {
+					solver.drop ();
 				}
+				other.transform.position = goalArea.transform.position;
+				solved = true;
 			}
 		}	
 	}
@@ -70,6 +89,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	{
 		if (toggle) {
 			if (other == keyCollider) {
+				solved = false;
 				solvedGoal.unSolved();
 				disappearingObject.SetActive (true);
 				resetTime ();

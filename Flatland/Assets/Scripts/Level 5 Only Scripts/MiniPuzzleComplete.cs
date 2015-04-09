@@ -4,14 +4,23 @@ using System.Collections;
 public class MiniPuzzleComplete : MonoBehaviour {
 
 	public Material newMaterial;
-	public GameObject rightLight;
-	public GameObject leftLight;
+//	public GameObject rightLight;
+//	public GameObject leftLight;
+	public GameObject goalArea;
 
 	Renderer rend;
+	SolvedGoal solvedGoal;
 
-	void Update () {
+	void Start()
+	{
 		rend = GetComponent<Renderer> ();
-		rend.material = newMaterial;
-	
+		solvedGoal = goalArea.GetComponent<SolvedGoal> ();
+	}
+
+	void Update () 
+	{
+		if (solvedGoal.isSolved ()) {
+			rend.material = newMaterial;
+		}
 	}
 }
