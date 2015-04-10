@@ -201,7 +201,6 @@ public class PickupObject : MonoBehaviour {
 						hold (hit.collider.gameObject);
 						hit.collider.gameObject.layer = 8;
 						sfx [0].Play ();
-						//hit.collider.gameObject.rigidbody.isKinematic = true;
 					}
 				}
 			}
@@ -232,7 +231,6 @@ public class PickupObject : MonoBehaviour {
 		carriedObject.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 		carriedObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 		carriedObject.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
-		//carriedObject.rigidbody.isKinematic = false;
 		carriedObject = null;
 	}
 	

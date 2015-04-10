@@ -49,6 +49,11 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 		}
 	}
 
+	public bool isSolved()
+	{
+		return solved;
+	}
+
 	void hold(Collider other)
 	{
 		other.transform.position = goalCollider.transform.position;

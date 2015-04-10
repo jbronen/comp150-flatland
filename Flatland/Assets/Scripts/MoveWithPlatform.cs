@@ -7,6 +7,7 @@ public class MoveWithPlatform : MonoBehaviour {
 
 	GameObject solver;
 	PickupObject pickupObject;
+	Vector3 originalScale;
 
 	void Start()
 	{
@@ -16,15 +17,14 @@ public class MoveWithPlatform : MonoBehaviour {
 
 	void OnCollisionStay(Collision other)
 	{
-		if (other.gameObject.tag == "Moving Platform") {
+		if (other.gameObject == pickupObject.carriedObject) {
+			transform.parent = originalParent.transform;
+		} else if (other.gameObject.tag == "Moving Platform") {
 			transform.parent = other.transform;
 		} else {
 			transform.parent = originalParent.transform;
 		}
-	}
 
-//	void OnCollisionExit(Collision other)
-//	{
-//		transform.parent = originalParent.transform;
-//	}
+
+	}	
 }

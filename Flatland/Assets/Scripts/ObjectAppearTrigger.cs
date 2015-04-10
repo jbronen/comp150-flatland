@@ -11,6 +11,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	public float timeLimit;
 	public bool toggle;
 
+	bool solved;
 	PickupObject solver;
 	float timeLeft;
 	bool timerOn;
@@ -19,6 +20,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	
 	void Start()
 	{
+		solved = false;
 		timerOn = false;
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 		keyCollider = keyObject.GetComponent<Collider> ();
@@ -29,11 +31,17 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	{
 		if (timerOn) {
 			if (timeLeft == 0) {
+				solved = false;
 				solvedGoal.unSolved();
 				appearingObject.SetActive (false);
 				resetTime();
 			}
 		}
+	}
+
+	public bool isSolved()
+	{
+		return solved;
 	}
 	
 	void resetTime()
@@ -52,6 +60,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 		if (other == keyCollider) {
 			appearingObject.SetActive (true);
 			solvedGoal.solved ();
+			solved = true;
 			if (timed) {
 				timeLeft = timeLimit;
 				timerOn = true;
@@ -70,6 +79,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	{
 		if (toggle) {
 			if (other == keyCollider) {
+				solved = false;
 				solvedGoal.unSolved();
 				appearingObject.SetActive (false);
 				resetTime ();
