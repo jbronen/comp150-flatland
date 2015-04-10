@@ -44,7 +44,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 			hold (keyCollider);
 		}
 
-		if (solver.pickingUp ()) {
+		if (solver.pickingUp (keyObject)) {
 			solved = false;
 		}
 	}

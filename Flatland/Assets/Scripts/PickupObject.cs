@@ -15,6 +15,7 @@ public class PickupObject : MonoBehaviour {
 
 	float distanceToObject;
 	GameObject mainCamera;
+	GameObject attemptedPickup;
 	bool hitPickup;
 	AudioSource [] sfx;
 	AudioClip sound_effect;
@@ -114,9 +115,6 @@ public class PickupObject : MonoBehaviour {
 			front = 7-temp;
 		}  
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			//o.transform.Rotate (Vector3.up * rotateSpeed * Time.deltaTime);
-			//rotation.y = (rotation.y + 3) % 4;
-			//Debug.Log (rotation);
 			int temp = front;
 			front = right;
 			right = 7-temp;
@@ -151,7 +149,7 @@ public class PickupObject : MonoBehaviour {
 				if (hit.collider.tag == "Pickup") {
 					distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
 					if (distanceToObject < distance) {
-						hitPickup = true;
+						attemptedPickup = hit.collider.gameObject;
 						hit.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 						hold (hit.collider.gameObject);
 						hit.collider.gameObject.layer = 8;
@@ -164,8 +162,13 @@ public class PickupObject : MonoBehaviour {
 		
 	}
 
-	public bool pickingUp()
+	public bool pickingUp(GameObject o)
 	{
+		if (o == attemptedPickup) {
+			hitPickup = true;
+		} else {
+			hitPickup = false;
+		}
 		return hitPickup;
 	}
 	
