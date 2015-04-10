@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Level 5 Only Scripts\MiniPuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
+     <Compile Include="Assets\Scripts\MoveWithPlatform.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Not in Use\AutoMovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Not in Use\BetterShapeSwitch.cs" />
