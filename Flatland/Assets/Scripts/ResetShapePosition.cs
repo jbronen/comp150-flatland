@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ResetShapePosition : MonoBehaviour {
 
-	public bool enabled;
+	public bool enableRespawn;
 
 	Vector3 initialPosition;
 	Quaternion initialRotation;

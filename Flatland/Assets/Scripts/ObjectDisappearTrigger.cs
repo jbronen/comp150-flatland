@@ -82,7 +82,9 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 			}
 			if (other.tag != "Player") {
 				if (solver.holdingObject) {
-					solver.drop ();
+					if (solver.carriedObject == other.gameObject) {
+						solver.drop ();
+					}
 				}
 				other.transform.position = goalArea.transform.position;
 				solved = true;
