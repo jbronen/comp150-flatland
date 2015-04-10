@@ -69,7 +69,7 @@ public class PickupObject : MonoBehaviour {
 			rotate (carriedObject);
 			if (Input.GetMouseButtonDown (0)) {
 				drop();
-				sfx [1].Play ();
+//				sfx [1].Play ();
 			}
 		}  else {
 			transformText.text = "";
@@ -224,6 +224,7 @@ public class PickupObject : MonoBehaviour {
 	
 	public void drop()
 	{
+		sfx [1].Play ();
 		hitPickup = false;
 		holdingObject = false;
 		carriedObject.layer = 9;

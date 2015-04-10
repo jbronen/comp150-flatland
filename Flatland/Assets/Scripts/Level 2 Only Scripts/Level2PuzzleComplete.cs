@@ -33,7 +33,7 @@ public class Level2PuzzleComplete : MonoBehaviour {
 		if (cubeGoalArea.solved) {
 			if (pyramidGoalArea.solved) {
 				if (cylinderGoalArea.solved) {
-					levelPortal.transform.position = new Vector3 (103.6f, 12.2f, 11.1f);
+					levelPortal.SetActive(true);
 					gameController.puzzleCompleted();
 				}
 			}
