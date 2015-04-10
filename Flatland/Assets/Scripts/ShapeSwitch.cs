@@ -12,10 +12,8 @@ public class ShapeSwitch : MonoBehaviour {
 	bool held;
 	int shapenum;
 	Transform [] temp;
-	//int maxshapes = 3;
 	PickupObject pickupObject; 
-	
-	// Use this for initialization
+
 	void Start () {
 		
 		shapenum = 0;
@@ -25,16 +23,8 @@ public class ShapeSwitch : MonoBehaviour {
 		}
 		parent_name = parent.ToString ();
 		temp = parent.GetComponentsInChildren<Transform>();
-		for (int j = 0; j < temp.Length; j++) {
-			Debug.Log (temp [j]);
-		}
-		//Debug.Log (temp.Length);
 		shapes = new GameObject[max_shapes];
 		for (int i = 0; i < temp.Length; i++) {
-			/*if (temp [i].gameObject.ToString ().Substring (0,4) == parent_name.Substring(0,4)) {
-                shapes [shapenum] = temp [i].gameObject;
-                shapenum++;
-            }*/
 			if (temp[i].gameObject.ToString() != parent_name) {
 				shapes[shapenum] = temp[i].gameObject;
 				shapenum++;
@@ -44,17 +34,10 @@ public class ShapeSwitch : MonoBehaviour {
 		for (int i = 1; i < shapes.Length; i++) {
 			shapes [i].SetActive (false);
 		}
-		for (int i = 0; i < shapes.Length; i++) {
-			Debug.Log(parent_name);
-			Debug.Log (shapes [i].ToString ());
-		}
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+	void Update () {
 		if (pickupObject.holdingObject) {
-			//Debug.Log(shapes[shapenum].ToString());
-			//Debug.Log (pickupObject.carriedObject.ToString());
 			held_name = shapes[shapenum].ToString();
 			if (pickupObject.carriedObject.ToString() == held_name) {
 				held = true;
@@ -68,10 +51,7 @@ public class ShapeSwitch : MonoBehaviour {
 			if (Input.GetMouseButtonDown(1)) {
 				pickupObject.drop();
 				shapenum = (shapenum + 1) % shapes.Length;
-				Debug.Log (shapenum);
-				Debug.Log (shapes[0].ToString());
 				if (shapenum == 0) {
-					//Debug.Log ("SHAPE 0 is " + gameObject.ToString());
 					shapes[0].transform.position = shapes[shapes.Length-1].transform.position + new Vector3(0,shapes[0].transform.localScale.y,0);
 					shapes[0].SetActive (true);
 					shapes[shapes.Length-1].SetActive (false);
@@ -79,7 +59,6 @@ public class ShapeSwitch : MonoBehaviour {
 					shapes[0].layer = 8;
 
 				} else {
-					//Debug.Log ("SHAPE 1 is " + gameObject.ToString());
 					shapes[shapenum].transform.position = shapes[shapenum-1].transform.position;
 					shapes[shapenum-1].SetActive (false);
 					shapes[shapenum].SetActive (true);
