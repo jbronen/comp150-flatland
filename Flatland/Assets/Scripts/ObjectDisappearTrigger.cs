@@ -26,7 +26,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 		timerOn = false;
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 		keyCollider = keyObject.GetComponent<Collider> ();
-		goalCollider = goalArea.GetComponent<Collider> ();
+		goalCollider = GetComponent<Collider> ();
 	}
 	
 	void Update()

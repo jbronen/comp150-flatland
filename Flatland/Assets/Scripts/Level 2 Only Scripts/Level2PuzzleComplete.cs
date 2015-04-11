@@ -30,9 +30,9 @@ public class Level2PuzzleComplete : MonoBehaviour {
 
 	void Update()
 	{
-		if (cubeGoalArea.solved) {
-			if (pyramidGoalArea.solved) {
-				if (cylinderGoalArea.solved) {
+		if (cubeGoalArea.isSolved()) {
+			if (pyramidGoalArea.isSolved()) {
+				if (cylinderGoalArea.isSolved()) {
 					levelPortal.SetActive(true);
 					gameController.puzzleCompleted();
 				}

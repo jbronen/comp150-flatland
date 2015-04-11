@@ -9,28 +9,35 @@ public class GoalArea : MonoBehaviour {
 	PickupObject solver;
 	Renderer keyRenderer;
 	float height;
+	bool shouldHold;
+	bool solved;
 
-	public bool solved;
 	public GameObject keyObject;
 	public float smooth;
-	public GameObject goal;
 
 	void Start ()
 	{
+		shouldHold = false;
 		keyRenderer = keyObject.GetComponent<Renderer> ();
 		height = keyRenderer.bounds.extents.magnitude;
 		
 		solver = GameObject.FindGameObjectWithTag ("Player").GetComponent<PickupObject>();
 		solved = false;
 		solvedGoal = GetComponent<SolvedGoal>();
-		goalCollider = goal.GetComponent<Collider> ();
+		goalCollider = GetComponent<Collider> ();
 		keyCollider = keyObject.GetComponent<Collider> ();
 	}
 
 	void Update() 
 	{
-		if (solved) {
-			hold();
+		if (shouldHold) {
+			if (solved) {
+				hold ();
+			}
+		}
+
+		if (solver.pickingUp (keyObject)) {
+			shouldHold = false;
 		}
 	}
 
@@ -53,6 +60,7 @@ public class GoalArea : MonoBehaviour {
 					solver.drop ();
 				}
 			}
+			shouldHold = true;
 			solved = true;
 			solvedGoal.solved();
 		}
@@ -62,6 +70,7 @@ public class GoalArea : MonoBehaviour {
 	{
 		if (other == keyCollider) {
 			solved = false;
+			shouldHold = false;
 			solvedGoal.unSolved();
 		}
 	}

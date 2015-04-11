@@ -5,25 +5,32 @@ public class ObjectAppearTrigger : MonoBehaviour {
 
 	public GameObject keyObject;
 	public GameObject appearingObject;
-	public GameObject goalArea;
-
 	public bool timed;
 	public float timeLimit;
 	public bool toggle;
+	public bool key2D;
 
+	float height;
+	Renderer keyRenderer;
 	bool solved;
 	PickupObject solver;
 	float timeLeft;
 	bool timerOn;
 	Collider keyCollider;
+	Collider goalCollider;
 	SolvedGoal solvedGoal;
+	bool shouldHold;
 	
 	void Start()
 	{
+		shouldHold = false;
+		keyRenderer = keyObject.GetComponent<Renderer> ();
+		height = keyRenderer.bounds.extents.magnitude;
 		solved = false;
 		timerOn = false;
 		solver = GameObject.FindWithTag ("Player").GetComponent<PickupObject> ();
 		keyCollider = keyObject.GetComponent<Collider> ();
+		goalCollider = GetComponent<Collider>();
 		solvedGoal = GetComponent<SolvedGoal> ();
 	}
 	
@@ -32,10 +39,30 @@ public class ObjectAppearTrigger : MonoBehaviour {
 		if (timerOn) {
 			if (timeLeft == 0) {
 				solved = false;
+				shouldHold = false;
 				solvedGoal.unSolved();
 				appearingObject.SetActive (false);
 				resetTime();
 			}
+		}
+		if (shouldHold) {
+			if (solved) {
+				hold ();
+			}
+		}
+
+		if (solver.pickingUp (keyObject)) {
+			shouldHold = false;
+		}
+	}
+
+	void hold()
+	{
+		keyCollider.transform.rotation = goalCollider.transform.rotation;
+		if (!key2D) {
+			keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
+		} else {
+			keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 100), goalCollider.transform.position.z);
 		}
 	}
 
@@ -58,19 +85,22 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other == keyCollider) {
-			appearingObject.SetActive (true);
-			solvedGoal.solved ();
-			solved = true;
 			if (timed) {
 				timeLeft = timeLimit;
 				timerOn = true;
 				InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
 			}
 			if (other.tag != "Player") {
-				if (!solver.holdingObject) {
-					//other.transform.position = goalArea.transform.position;
+				if (solver.holdingObject) {
+					if (solver.carriedObject == other.gameObject) {
+						solver.drop ();
+					}
 				}
 			}
+			shouldHold = true;
+			appearingObject.SetActive (true);
+			solvedGoal.solved ();
+			solved = true;
 		}
 		
 	}
@@ -80,6 +110,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 		if (toggle) {
 			if (other == keyCollider) {
 				solved = false;
+				shouldHold = false;
 				solvedGoal.unSolved();
 				appearingObject.SetActive (false);
 				resetTime ();
