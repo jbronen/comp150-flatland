@@ -18,14 +18,8 @@ public class Level2PuzzleComplete : MonoBehaviour {
 		cubeGoalArea = cubeGA.GetComponent<GoalArea> ();
 		pyramidGoalArea = pyramidGA.GetComponent<GoalArea> ();
 		cylinderGoalArea = cylinderGA.GetComponent<GoalArea> ();
-
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController> ();
-		}
-		if (gameController == null) {
-			Debug.Log ("Cannot find 'GameController' script");
-		}
+		gameController = gameControllerObject.GetComponent <GameController> ();
 	}
 
 	void Update()

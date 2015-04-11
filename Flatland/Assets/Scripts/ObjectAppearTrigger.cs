@@ -8,7 +8,8 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	public bool timed;
 	public float timeLimit;
 	public bool toggle;
-	public bool key2D;
+	public Dimension keyDimension;
+	public Orientation goalOrientation;
 
 	float height;
 	Renderer keyRenderer;
@@ -59,7 +60,7 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	void hold()
 	{
 		keyCollider.transform.rotation = goalCollider.transform.rotation;
-		if (!key2D) {
+		if (keyDimension == Dimension.key3D) {
 			keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
 		} else {
 			keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 100), goalCollider.transform.position.z);

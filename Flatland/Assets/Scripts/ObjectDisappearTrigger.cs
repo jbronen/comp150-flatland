@@ -1,16 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Dimension {
+	key2D, key3D
+}
+
+public enum Orientation {
+	onFloor, onWall
+}
+
 public class ObjectDisappearTrigger : MonoBehaviour {
 
 	public GameObject keyObject;
 	public GameObject disappearingObject;
-	public GameObject goalArea;
-
 	public bool toggle;
 	public bool timed;
 	public float timeLimit;
-	
+	public Dimension keyDimesion;
+	public Orientation goalOrientation;
+
+	float height;
+	Renderer keyRenderer;
+	bool shouldHold;
 	PickupObject solver;
 	float timeLeft;
 	bool timerOn;
@@ -21,6 +32,9 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	
 	void Start()
 	{
+		keyRenderer = keyObject.GetComponent<Renderer> ();
+		height = keyRenderer.bounds.extents.magnitude;
+		shouldHold = false;
 		solved = false;
 		solvedGoal = GetComponent<SolvedGoal> ();
 		timerOn = false;
@@ -34,18 +48,21 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 		if (timerOn) {
 			if (timeLeft == 0) {
 				solved = false;
+				shouldHold = false;
 				solvedGoal.unSolved();
 				disappearingObject.SetActive (true);
 				resetTime();
 			}
 		}
 
-		if (solved) {
-			hold (keyCollider);
+		if (shouldHold) {
+			if (solved) {
+				hold (keyCollider);
+			}
 		}
 
 		if (solver.pickingUp (keyObject)) {
-			solved = false;
+			shouldHold = false;
 		}
 	}
 
@@ -56,7 +73,20 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 
 	void hold(Collider other)
 	{
-		other.transform.position = goalCollider.transform.position;
+		keyCollider.transform.rotation = goalCollider.transform.rotation;
+		if (goalOrientation == Orientation.onFloor) {
+			if (keyDimesion == Dimension.key2D) {
+				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 100), goalCollider.transform.position.z);
+			} else {
+				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
+			}
+		} else {
+			if (keyDimesion == Dimension.key2D) {
+				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 100), goalCollider.transform.position.z);
+			} else {
+				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
+			}
+		}
 	}
 	
 	void resetTime()
@@ -86,8 +116,8 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 						solver.drop ();
 					}
 				}
-				other.transform.position = goalArea.transform.position;
 				solved = true;
+				shouldHold = true;
 			}
 		}	
 	}
@@ -97,6 +127,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 		if (toggle) {
 			if (other == keyCollider) {
 				solved = false;
+				shouldHold = false;
 				solvedGoal.unSolved();
 				disappearingObject.SetActive (true);
 				resetTime ();
