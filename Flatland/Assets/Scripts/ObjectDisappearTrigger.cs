@@ -56,9 +56,7 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 		}
 
 		if (shouldHold) {
-			if (solved) {
-				hold (keyCollider);
-			}
+			hold ();
 		}
 
 		if (solver.pickingUp (keyObject)) {
@@ -71,22 +69,22 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 		return solved;
 	}
 
-	void hold(Collider other)
+	void hold()
 	{
 		keyCollider.transform.rotation = goalCollider.transform.rotation;
-		if (goalOrientation == Orientation.onFloor) {
+//		if (goalOrientation == Orientation.onFloor) {
 			if (keyDimesion == Dimension.key2D) {
 				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 100), goalCollider.transform.position.z);
 			} else {
 				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
 			}
-		} else {
-			if (keyDimesion == Dimension.key2D) {
-				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 100), goalCollider.transform.position.z);
-			} else {
-				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
-			}
-		}
+//		} else {
+//			if (keyDimesion == Dimension.key2D) {
+//				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y, goalCollider.transform.position.z);
+//			} else {
+//				keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
+//			}
+//		}
 	}
 	
 	void resetTime()
@@ -103,8 +101,6 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other == keyCollider) {
-			solvedGoal.solved ();
-			disappearingObject.SetActive (false);
 			if (timed) {
 				timeLeft = timeLimit;
 				timerOn = true;
@@ -116,9 +112,11 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 						solver.drop ();
 					}
 				}
-				solved = true;
 				shouldHold = true;
 			}
+			solved = true;
+			solvedGoal.solved ();
+			disappearingObject.SetActive (false);
 		}	
 	}
 
