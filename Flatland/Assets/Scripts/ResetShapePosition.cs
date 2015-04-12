@@ -16,7 +16,8 @@ public class ResetShapePosition : MonoBehaviour {
 	}
 
 	public void reset () {
-		if (enabled) {
+		if (enableRespawn) {
+			Debug.Log ("reset shape");
 			transform.position = initialPosition;
 			transform.rotation = initialRotation;
 			rb.velocity = Vector3.zero;
