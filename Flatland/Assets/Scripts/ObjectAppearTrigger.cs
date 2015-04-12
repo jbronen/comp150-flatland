@@ -97,8 +97,8 @@ public class ObjectAppearTrigger : MonoBehaviour {
 						solver.drop ();
 					}
 				}
+				shouldHold = true;
 			}
-			shouldHold = true;
 			appearingObject.SetActive (true);
 			solvedGoal.solved ();
 			solved = true;
