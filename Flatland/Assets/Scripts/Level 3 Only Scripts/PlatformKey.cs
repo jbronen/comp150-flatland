@@ -9,6 +9,8 @@ public class PlatformKey : MonoBehaviour {
 	MovingPlatform platformMover;
 	
 	Collider keyCollider;
+
+	SolvedGoal solvedGoal;
 	
 	void Start()
 	{
@@ -18,26 +20,31 @@ public class PlatformKey : MonoBehaviour {
 //		}
 		keyCollider = keyObject.GetComponent<BoxCollider> ();
 		platformMover = platform.GetComponent<MovingPlatform> ();
+		solvedGoal = gameObject.GetComponent<SolvedGoal> ();
 	}
 	
 	void OnTriggerStay(Collider other) 
 	{
 		if (other == keyCollider) {
 			platformMover.move (true);
+			solvedGoal.solved ();
 		} else if (keyCollider.ToString().Length != other.ToString().Length) {
 			platformMover.move (false);
+			solvedGoal.unSolved();
 		}
 	}
 
 	void OnTriggerEnter(Collider other) {
 		if (other != keyCollider) {
 			platformMover.move (false);
+			solvedGoal.unSolved();
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
 		if (other == keyCollider) {
 			platformMover.move (false);
+			solvedGoal.unSolved();
 		}
 	}
 }
