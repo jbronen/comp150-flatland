@@ -13,7 +13,8 @@ public class GoalArea : MonoBehaviour {
 	bool solved;
 
 	public GameObject keyObject;
-	public float smooth;
+	public bool toggle;
+	public Dimension keyDimension;
 
 	void Start ()
 	{
@@ -44,7 +45,11 @@ public class GoalArea : MonoBehaviour {
 	void hold()
 	{
 		keyCollider.transform.rotation = goalCollider.transform.rotation;
-		keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
+		if (keyDimension == Dimension.key3D) {
+			keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 3), goalCollider.transform.position.z);
+		} else {
+			keyCollider.transform.position = new Vector3 (goalCollider.transform.position.x, goalCollider.transform.position.y + (height / 100), goalCollider.transform.position.z);
+		}
 	}
 
 	public bool isSolved()
@@ -68,10 +73,12 @@ public class GoalArea : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other == keyCollider) {
-			solved = false;
-			shouldHold = false;
-			solvedGoal.unSolved();
+		if (toggle) {
+			if (other == keyCollider) {
+				solved = false;
+				shouldHold = false;
+				solvedGoal.unSolved ();
+			}
 		}
 	}
 

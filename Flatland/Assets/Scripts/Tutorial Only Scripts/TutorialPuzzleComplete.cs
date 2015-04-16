@@ -11,19 +11,14 @@ public class TutorialPuzzleComplete : MonoBehaviour {
 	void Start ()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController> ();
-		}
-		if (gameController == null) {
-			Debug.Log ("Cannot find 'GameController' script");
-		}
+		gameController = gameControllerObject.GetComponent <GameController> ();
 	}
 	
 	void Update()
 	{
 		if (door.activeSelf == false) {
 			gameController.puzzleCompleted();
-			levelPortal.transform.position = new Vector3 (-.5f, 6f, 40f);
+			levelPortal.SetActive(true);
 		}
 	}
 }

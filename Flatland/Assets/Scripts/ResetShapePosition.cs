@@ -17,12 +17,15 @@ public class ResetShapePosition : MonoBehaviour {
 
 	public void reset () {
 		if (enableRespawn) {
-			Debug.Log ("reset shape");
 			transform.position = initialPosition;
 			transform.rotation = initialRotation;
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
 		}
+	}
+
+	public Vector3 getPosition () {
+		return initialPosition;
 	}
 
 }

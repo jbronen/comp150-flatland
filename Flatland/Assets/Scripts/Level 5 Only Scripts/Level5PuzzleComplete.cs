@@ -7,14 +7,14 @@ public class Level5PuzzleComplete : MonoBehaviour {
 	public GameObject rightGoal;
 	public GameObject levelPortal;
 
-	ObjectAppearTrigger leftGoalArea;
+	GoalArea leftGoalArea;
 	ObjectDisappearTrigger rightGoalArea;
 	GameController gameController;
 	GameObject gameControllerObject;
 
 	void Start()
 	{
-		leftGoalArea = leftGoal.GetComponent<ObjectAppearTrigger> ();
+		leftGoalArea = leftGoal.GetComponent<GoalArea> ();
 		rightGoalArea = rightGoal.GetComponent<ObjectDisappearTrigger> ();
 		gameControllerObject = GameObject.FindWithTag ("GameController");
 		gameController = gameControllerObject.GetComponent <GameController> ();

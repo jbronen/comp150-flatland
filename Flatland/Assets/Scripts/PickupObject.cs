@@ -53,6 +53,7 @@ public class PickupObject : MonoBehaviour {
 				drop ();
 			}
 		} else {
+			attemptedPickup = null;
 			checkForPickup ();
 			pickup ();
 		}

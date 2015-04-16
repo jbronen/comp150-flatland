@@ -1,19 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ObjectAppearTrigger.cs">
     <Files>
-      <File FileName="Assets/Scripts/MoveWithPlatform.cs" Line="31" Column="1" />
-      <File FileName="Assets/Scripts/ObjectDisappearTrigger.cs" Line="54" Column="17" />
-      <File FileName="Assets/Scripts/GoalArea.cs" Line="21" Column="5" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PickupObject.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SolvedGoal.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level 5 Only Scripts/MiniPuzzleComplete.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ObjectAppearTrigger.cs" Line="82" Column="20" />
-      <File FileName="Assets/Scripts/PauseMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DeathByPit.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MovingPlatform.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level 2 Only Scripts/Level2PuzzleComplete.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/Level 3 Only Scripts/Level3PuzzleComplete.cs" Line="6" Column="1" />
+      <File FileName="Assets/Scripts/Level 2 Only Scripts/Level2PuzzleComplete.cs" Line="1" Column="1" />
+      <File FileName="Assets/Level4PuzzleComplete.cs" Line="27" Column="31" />
+      <File FileName="Assets/Scripts/ObjectAppearTrigger.cs" Line="103" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
