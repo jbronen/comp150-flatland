@@ -77,7 +77,6 @@
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\Level1Portal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialGoal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialPuzzleComplete.cs" />
-     <None Include="Assets\Scripts\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
  <Reference Include="UnityEngine.UI">
