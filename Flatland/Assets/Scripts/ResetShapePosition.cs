@@ -24,4 +24,8 @@ public class ResetShapePosition : MonoBehaviour {
 		}
 	}
 
+	public Vector3 getPosition () {
+		return initialPosition;
+	}
+
 }
