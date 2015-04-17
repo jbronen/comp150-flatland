@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\ObjectDisappearTrigger.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
      <Compile Include="Assets\Scripts\PickupObject.cs" />
+     <Compile Include="Assets\Scripts\Pocket.cs" />
      <Compile Include="Assets\Scripts\ResetShapePosition.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\SolvedGoal.cs" />

@@ -53,7 +53,7 @@ public class LinkedShapeSwitch : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (pickupObject.holdingObject) {
 			//Debug.Log(shapes[shapenum].ToString());
 			//Debug.Log (pickupObject.carriedObject.ToString());
