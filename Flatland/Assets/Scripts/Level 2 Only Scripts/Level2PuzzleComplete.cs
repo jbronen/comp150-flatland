@@ -7,6 +7,7 @@ public class Level2PuzzleComplete : MonoBehaviour {
 	public GameObject pyramidGA;
 	public GameObject cylinderGA;
 	public GameObject levelPortal;
+	public GameObject lightPaths;
 
 	private GoalArea cubeGoalArea;
 	private GoalArea pyramidGoalArea;
@@ -27,6 +28,7 @@ public class Level2PuzzleComplete : MonoBehaviour {
 		if (cubeGoalArea.isSolved()) {
 			if (pyramidGoalArea.isSolved()) {
 				if (cylinderGoalArea.isSolved()) {
+					lightPaths.SetActive(true);
 					levelPortal.SetActive(true);
 					gameController.puzzleCompleted();
 				}
