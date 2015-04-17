@@ -1,11 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Level 3 Only Scripts/LinkedShapeSwitch.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Level 5 Only Scripts/Level5PuzzleComplete.cs">
     <Files>
-      <File FileName="Assets/Scripts/ObjectAppearTrigger.cs" Line="103" Column="25" />
+      <File FileName="Assets/Scripts/ObjectAppearTrigger.cs" Line="101" Column="5" />
+      <File FileName="Assets/Scripts/MoveWithPlatform.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ObjectDisappearTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GoalArea.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PickupObject.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SolvedGoal.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level 3 Only Scripts/PlatformKey.cs" Line="47" Column="27" />
-      <File FileName="Assets/Scripts/Level 3 Only Scripts/LinkedShapeSwitch.cs" Line="56" Column="7" />
+      <File FileName="Assets/Scripts/MovingPlatform.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level 2 Only Scripts/Level2PuzzleComplete.cs" Line="32" Column="18" />
+      <File FileName="Assets/Scripts/Level 5 Only Scripts/Level5PuzzleComplete.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

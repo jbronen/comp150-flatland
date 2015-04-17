@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Level4PuzzleComplete.cs" />
      <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
      <Compile Include="Assets\Scripts\Barrier.cs" />
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
@@ -59,6 +58,7 @@
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\Level3PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\LinkedShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\PlatformKey.cs" />
+     <Compile Include="Assets\Scripts\Level 4 Only Scripts\Level4PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 5 Only Scripts\Level5PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 5 Only Scripts\MiniPuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />

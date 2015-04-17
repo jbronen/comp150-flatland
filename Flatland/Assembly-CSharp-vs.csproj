@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Level4PuzzleComplete.cs" />
      <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
      <Compile Include="Assets\Scripts\Barrier.cs" />
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
@@ -59,6 +58,7 @@
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\Level3PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\LinkedShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\PlatformKey.cs" />
+     <Compile Include="Assets\Scripts\Level 4 Only Scripts\Level4PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 5 Only Scripts\Level5PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 5 Only Scripts\MiniPuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\LevelChange.cs" />
@@ -81,7 +81,7 @@
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/Brian/Desktop/School/Game Design/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/daniel/Desktop/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
