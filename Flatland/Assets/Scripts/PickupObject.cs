@@ -6,7 +6,8 @@ public class PickupObject : MonoBehaviour {
 
 	public GameObject carriedObject;
 	public bool holdingObject = false;
-	public float distance;
+	public float holdingDistance;
+	public float pickupDistance;
 	public float smooth;
 	public Text pickupText;
 	public Text transformText;
@@ -72,7 +73,7 @@ public class PickupObject : MonoBehaviour {
 	
 	void carry(GameObject o)
 	{
-		o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
+		o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * holdingDistance, Time.deltaTime * smooth);
 	}
 	
 	void checkForRotate () {
@@ -149,7 +150,7 @@ public class PickupObject : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.collider.tag == "Pickup") {
 					distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
-					if (distanceToObject < distance) {
+					if (distanceToObject < pickupDistance) {
 						attemptedPickup = hit.collider.gameObject;
 						hit.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 						hold (hit.collider.gameObject);
@@ -204,7 +205,7 @@ public class PickupObject : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit)) {
 			if (hit.collider.tag == "Pickup") {
 				float distanceToObject = Vector3.Distance (transform.position, hit.transform.position);
-				if (distanceToObject < distance) {
+				if (distanceToObject < pickupDistance) {
 					reticle.color = Color.green; 
 					pickupText.text = "Left-Click to Pick Up";
 				}  else {
