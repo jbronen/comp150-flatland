@@ -16,6 +16,9 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	bool solved;
 	PickupObject solver;
 	float timeLeft;
+	float holdTimeLeft;
+	float holdLimit;
+	bool holdTimerOn;
 	bool timerOn;
 	Collider keyCollider;
 	Collider goalCollider;
@@ -24,6 +27,9 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	
 	void Start()
 	{
+		holdTimerOn = false;
+		holdLimit = 2f;
+		holdTimeLeft = holdLimit;
 		shouldHold = false;
 		keyRenderer = keyObject.GetComponent<Renderer> ();
 		height = keyRenderer.bounds.extents.magnitude;
@@ -46,6 +52,15 @@ public class ObjectAppearTrigger : MonoBehaviour {
 				resetTime();
 			}
 		}
+
+		if (holdTimerOn) {
+			if (holdTimeLeft > 0) {
+				shouldHold = false;
+			} else {
+				holdTimerOn = false;
+			}
+		}
+
 		if (shouldHold) {
 			if (solved) {
 				hold ();
@@ -80,41 +95,54 @@ public class ObjectAppearTrigger : MonoBehaviour {
 	
 	void decreaseTimeRemaining()
 	{
-		timeLeft--;
+		if (holdTimerOn) {
+			holdTimeLeft--;
+		}
+		if (timerOn) {
+			timeLeft--;
+		}
 	}
 	
 	void OnTriggerEnter(Collider other) 
 	{
-		if (other == keyCollider) {
-			if (timed) {
-				timeLeft = timeLimit;
-				timerOn = true;
-				InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
-			}
-			if (other.tag != "Player") {
-				if (solver.holdingObject) {
-					if (solver.carriedObject == other.gameObject) {
-						solver.drop ();
-					}
+		if (!holdTimerOn) {
+			if (other == keyCollider) {
+				if (timed) {
+					timeLeft = timeLimit;
+					timerOn = true;
+					InvokeRepeating ("decreaseTimeRemaining", 1f, .7f);
 				}
-				shouldHold = true;
+				if (other.tag != "Player") {
+					if (solver.holdingObject) {
+						if (solver.carriedObject == other.gameObject) {
+							solver.drop ();
+						}
+					}
+					shouldHold = true;
+				}
+				appearingObject.SetActive (true);
+				solvedGoal.solved ();
+				solved = true;
 			}
-			appearingObject.SetActive (true);
-			solvedGoal.solved ();
-			solved = true;
 		}
-		
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		if (toggle) {
+		if (!holdTimerOn) {
 			if (other == keyCollider) {
-				solved = false;
-				shouldHold = false;
-				solvedGoal.unSolved();
-				appearingObject.SetActive (false);
-				resetTime ();
+
+				holdTimeLeft = holdLimit;
+				holdTimerOn = true;
+
+				InvokeRepeating ("decreaseTimeRemaining", 1f, 1f);
+				if (toggle) {
+					solved = false;
+					shouldHold = false;
+					solvedGoal.unSolved ();
+					appearingObject.SetActive (false);
+					resetTime ();
+				}
 			}
 		}
 	}
