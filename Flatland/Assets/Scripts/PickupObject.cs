@@ -11,7 +11,8 @@ public class PickupObject : MonoBehaviour {
 	public float smooth;
 	public Text pickupText;
 	public Text transformText;
-	public Text reticle;
+	public Text regularReticle;
+	public Image pickupReticle;
 	public float rotateSpeed;
 
 	float distanceToObject;
@@ -29,6 +30,7 @@ public class PickupObject : MonoBehaviour {
 	
 	void Start()
 	{
+		pickupReticle.enabled = false;
 		hitPickup = false;
 		pickupText.text = "";
 		transformText.text = "";
@@ -206,14 +208,18 @@ public class PickupObject : MonoBehaviour {
 			if (hit.collider.tag == "Pickup") {
 				float distanceToObject = Vector3.Distance (transform.position, hit.transform.position);
 				if (distanceToObject < pickupDistance) {
-					reticle.color = Color.green; 
+					//reticle.color = Color.green; 
+					pickupReticle.enabled = true;
+					regularReticle.enabled = false;
 					pickupText.text = "Left-Click to Pick Up";
 				}  else {
 					pickupText.text = "";
 				}
 			}  else {
 				pickupText.text = "";
-				reticle.color = Color.red;
+				//reticle.color = Color.red;
+				regularReticle.enabled = true;
+				pickupReticle.enabled = false;
 			}
 		}  
 	}
