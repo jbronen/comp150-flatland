@@ -5,7 +5,6 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 
 	public GameObject keyObject;
 	public GameObject animatedObject;
-	Animator objectAnimator;
 //	public bool timed;
 //	public float timeLimit;
 //	public bool toggle;
@@ -13,6 +12,7 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 	public Orientation goalOrientation;
 
 	float height;
+	Animator objectAnimator;
 	Renderer keyRenderer;
 	bool solved;
 	PickupObject solver;
@@ -28,7 +28,7 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 
 	void Start()
 	{
-		objectAnimator = animatedObject.GetComponent<Animator> ();
+//		objectAnimator = animatedObject.GetComponent<Animator> ();
 		holdTimerOn = false;
 		holdLimit = 2f;
 		holdTimeLeft = holdLimit;
