@@ -51,7 +51,6 @@
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
      <Compile Include="Assets\Scripts\DropPlatform.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\GoalArea.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\Level1PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\Freezer.cs" />
@@ -67,8 +66,10 @@
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Not in Use\AutoMovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Not in Use\BetterShapeSwitch.cs" />
-     <Compile Include="Assets\Scripts\ObjectAppearTrigger.cs" />
-     <Compile Include="Assets\Scripts\ObjectDisappearTrigger.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\GoalArea.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\ObjectAnimateTrigger.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\ObjectAppearTrigger.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\ObjectDisappearTrigger.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
      <Compile Include="Assets\Scripts\PickupObject.cs" />
      <Compile Include="Assets\Scripts\Pocket.cs" />

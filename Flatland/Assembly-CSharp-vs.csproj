@@ -51,7 +51,6 @@
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
      <Compile Include="Assets\Scripts\DropPlatform.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\GoalArea.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\Level1PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\Freezer.cs" />
@@ -67,8 +66,10 @@
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Not in Use\AutoMovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Not in Use\BetterShapeSwitch.cs" />
-     <Compile Include="Assets\Scripts\ObjectAppearTrigger.cs" />
-     <Compile Include="Assets\Scripts\ObjectDisappearTrigger.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\GoalArea.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\ObjectAnimateTrigger.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\ObjectAppearTrigger.cs" />
+     <Compile Include="Assets\Scripts\Object Trigger Scripts\ObjectDisappearTrigger.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
      <Compile Include="Assets\Scripts\PickupObject.cs" />
      <Compile Include="Assets\Scripts\Pocket.cs" />
@@ -82,7 +83,7 @@
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/shri/Desktop/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/daniel/Desktop/comp150-flatland/Flatland/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
