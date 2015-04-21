@@ -51,6 +51,9 @@
      <Compile Include="Assets\Scripts\DeathByPit.cs" />
      <Compile Include="Assets\Scripts\DropPlatform.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\Level 0 Only Scripts\Level1Portal.cs" />
+     <Compile Include="Assets\Scripts\Level 0 Only Scripts\TutorialGoal.cs" />
+     <Compile Include="Assets\Scripts\Level 0 Only Scripts\TutorialPuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 1 Only Scripts\Level1PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 2 Only Scripts\Level2PuzzleComplete.cs" />
      <Compile Include="Assets\Scripts\Level 3 Only Scripts\Freezer.cs" />
@@ -76,10 +79,7 @@
      <Compile Include="Assets\Scripts\ResetShapePosition.cs" />
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\SolvedGoal.cs" />
-     <Compile Include="Assets\Scripts\Tutorial Only Scripts\Level1Portal.cs" />
-     <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialGoal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialIntro.cs" />
-     <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialPuzzleComplete.cs" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">

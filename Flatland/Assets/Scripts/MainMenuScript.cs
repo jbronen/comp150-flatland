@@ -12,7 +12,7 @@ public class MainMenuScript : MonoBehaviour {
 
 	public void NewGame()
 	{
-		Application.LoadLevel ("Tutorial Level");
+		Application.LoadLevel ("Tutorial Intro");
 	}
 
 }
