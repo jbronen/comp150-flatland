@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\ShapeSwitch.cs" />
      <Compile Include="Assets\Scripts\SolvedGoal.cs" />
      <Compile Include="Assets\Scripts\Tutorial Only Scripts\TutorialIntro.cs" />
+     <Compile Include="Assets\Scripts\delayScript.cs" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\SampleAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">

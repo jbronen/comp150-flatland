@@ -37,13 +37,15 @@ public class MoveWithPlatform : MonoBehaviour {
 //		} else {
 //			hold = false;
 //		}
+
+
 		if (other.gameObject == pickupObject.carriedObject) {
 			transform.parent = originalParent.transform;
 		} else if (other.gameObject.tag == "Moving Platform") {
 			transform.parent = other.transform;
 			transform.rotation = oldPos.rotation;
 			transform.localScale = oldPos.localScale;
-		} else {
+		} else if (!(other.gameObject.tag == "Pickup")) {
 			transform.parent = originalParent.transform;
 		}
 
