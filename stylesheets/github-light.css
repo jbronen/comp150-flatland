@@ -113,3 +113,9 @@
 .pl-mo /* meta.output */ {
   color: #1d3e81;
 }
+
+table, td, tr {
+  border-width: 0;
+  border-style: hidden;
+  border-color: #000000;
+}

@@ -10,7 +10,7 @@ body {
   color: #606c71; }
 
 a {
-  color: #1e6bb8;
+  color: rgb(197,232,155);
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
@@ -57,19 +57,19 @@ a {
   color: #fff;
   text-align: center;
   background-color: #159957;
-  background-image: linear-gradient(120deg, #155799, #159957); }
+  background-image: linear-gradient(120deg, rgb(122,71,165), rgb(197,232,155)); }
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 2rem 1rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
-    padding: 3rem 4rem; } }
+    padding: 1rem 1rem; } }
 
 @media screen and (max-width: 42em) {
   .page-header {
-    padding: 2rem 1rem; } }
+    padding: 1rem 1rem; } }
 
 .project-name {
   margin-top: 0;
@@ -112,9 +112,13 @@ a {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
-  color: #159957; }
+  color: rgb(122,71,165); }
 .main-content p {
-  margin-bottom: 1em; }
+  margin-bottom: 1em; 
+  color: #ffffff; }
+.main-content ul {
+  color: #ffffff;
+}
 .main-content code {
   padding: 2px 4px;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -227,10 +231,12 @@ a {
 
 .site-footer-owner {
   display: block;
-  font-weight: bold; }
+  font-weight: bold;
+  color: #ffffff; }
 
 .site-footer-credits {
-  color: #819198; }
+  color: #ffffff; }
+
 
 @media screen and (min-width: 64em) {
   .site-footer {
@@ -243,3 +249,37 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+body {
+  background-color: #000000;
+}
+
+.page-header {
+  color: #000000;
+}
+
+.page-header a {
+  color: #000000;
+}
+
+.image-header {
+  background-color: #000000;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.authors img {
+  width: 500px;
+  border-radius: 100px;
+}
+
+.authors {
+  border-style: none;
+}
+
+table {
+  border-width: 0;
+  border-style: hidden;
+}
