@@ -68,6 +68,8 @@ public class GoalArea : MonoBehaviour {
 			shouldHold = true;
 			solved = true;
 			solvedGoal.solved();
+			Rigidbody rb = other.GetComponent<Rigidbody>();
+			rb.constraints = RigidbodyConstraints.FreezePosition;
 		}
 	}
 

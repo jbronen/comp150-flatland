@@ -23,9 +23,9 @@ public class MoveWithPlatform : MonoBehaviour {
 		pickupObject = solver.GetComponent<PickupObject> ();
 	}
 
-	void OnCollisionStay(Collision other)
+	void OnCollisionEnter(Collision other)
 	{
-		oldPos = gameObject.transform;
+		//oldPos = gameObject.transform;
 //		if (gameObject == pickupObject.carriedObject) {
 //			hold = false;
 //			//do nothing
@@ -40,20 +40,22 @@ public class MoveWithPlatform : MonoBehaviour {
 
 
 		if (other.gameObject == pickupObject.carriedObject) {
-			transform.parent = originalParent.transform;
+			//transform.parent = originalParent.transform;
 		} else if (other.gameObject.tag == "Moving Platform") {
 			transform.parent = other.transform;
 			transform.rotation = oldPos.rotation;
 			transform.localScale = oldPos.localScale;
-		} else if (!(other.gameObject.tag == "Pickup")) {
-			transform.parent = originalParent.transform;
+		} else if ((other.gameObject.tag == "Pickup")) {
+			//transform.parent = originalParent.transform;
 		}
 
 
 	}	
 
-//	void FixedUpdate()
-//	{
+	void FixedUpdate()
+	{
+		transform.localScale = oldPos.localScale;
+	}
 //		if (hold == true) {
 //			offset = (transform.position);
 //			newPos = new Vector3 ((P.position.x + (P.position.x - offset.x)), offset.y, (P.position.z + (P.position.z - offset.z)));

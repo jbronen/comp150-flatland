@@ -119,6 +119,8 @@ public class ObjectAppearTrigger : MonoBehaviour {
 						}
 					}
 					shouldHold = true;
+					Rigidbody rb = other.GetComponent<Rigidbody>();
+					rb.constraints = RigidbodyConstraints.FreezePosition;
 				}
 				appearingObject.SetActive (true);
 				solvedGoal.solved ();

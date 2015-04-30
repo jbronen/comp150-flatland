@@ -52,6 +52,7 @@ public class PickupObject : MonoBehaviour {
 	{
 		if (holdingObject) {
 			rotate (carriedObject);
+			//checkForRotate();
 			if (Input.GetMouseButtonDown (0)) {
 				drop ();
 			}
@@ -112,33 +113,48 @@ public class PickupObject : MonoBehaviour {
 		//rotate vector by rotation vector
 		//calculate point to look at for LookAt function
 		//use LookAt function
+		Quaternion FromRotation = Quaternion.identity;
+		bool keypress = false;
 		dummy = o.transform;
 		if (Input.GetKeyDown (KeyCode.RightArrow)) {
 			int temp = right;
 			right = front;
 			front = 7-temp;
+			FromRotation = o.transform.rotation;
+			keypress = true;
 		}  
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
 			int temp = front;
 			front = right;
 			right = 7-temp;
+			FromRotation = o.transform.rotation;
+			keypress = true;
 		}  
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			int temp = top;
 			top = front;
 			front = 7-temp;
+			FromRotation = o.transform.rotation;
+			keypress = true;
 		}  
 		if (Input.GetKeyDown (KeyCode.DownArrow)) {
 			int temp = front;
 			front = top;
 			top = 7-temp;
+			FromRotation = o.transform.rotation;
+			keypress = true;
 		}
-		dummy.LookAt (new Vector3 (mainCamera.transform.position.x, o.transform.position.y, mainCamera.transform.position.z));
+		if (keypress) {
+			o.transform.rotation = Quaternion.Slerp (FromRotation, dummy.rotation, Time.time * 0.1F);
+		} else {
+			dummy.LookAt (new Vector3 (mainCamera.transform.position.x, o.transform.position.y, mainCamera.transform.position.z));
+		}
+		//dummy.LookAt (new Vector3 (mainCamera.transform.position.x, o.transform.position.y, mainCamera.transform.position.z));
 		rotation_vec = rotations [top-1,right-1];
 		dummy.rotation = Quaternion.AngleAxis (rotation_vec.x, dummy.right)*dummy.rotation;
 		dummy.rotation = Quaternion.AngleAxis (rotation_vec.y, dummy.up)*dummy.rotation;
 		dummy.rotation = Quaternion.AngleAxis (rotation_vec.z, dummy.forward)*dummy.rotation;
-		o.transform.rotation = Quaternion.Slerp(o.transform.rotation, dummy.rotation,Time.fixedDeltaTime);
+		keypress = false;
 	}
 	
 	void pickup()
@@ -154,6 +170,7 @@ public class PickupObject : MonoBehaviour {
 					distanceToObject = Vector3.Distance(transform.position, hit.transform.position); 
 					if (distanceToObject < pickupDistance) {
 						attemptedPickup = hit.collider.gameObject;
+						hit.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 						hit.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 						hold (hit.collider.gameObject);
 						hit.collider.gameObject.layer = 8;
