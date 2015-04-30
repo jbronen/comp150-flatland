@@ -36,7 +36,7 @@ public class TutorialIntro : MonoBehaviour {
 		tutorialLevel = 0;
 		startTutorial = false;
 
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
 
 		mainCamera.enabled = false;
 		cinematicCamera.enabled = true;

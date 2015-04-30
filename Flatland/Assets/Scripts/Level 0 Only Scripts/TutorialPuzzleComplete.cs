@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TutorialPuzzleComplete : MonoBehaviour {
 
-	private GameController gameController;
+	GameController gameController;
+//	GameObject fader;
+//	Image faderImage;
 	
 	public GameObject door;
 	public GameObject levelPortal;
 	
 	void Start ()
 	{
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		gameController = gameControllerObject.GetComponent <GameController> ();
+//		fader = GameObject.FindWithTag ("Fader");
+//		faderImage = fader.GetComponent<Image> ();
+//		faderImage.color.a = 0;
+		gameController = GameObject.FindWithTag ("GameController").GetComponent<GameController>();
 	}
 	
 	void Update()
