@@ -132,6 +132,8 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 					objectAnimator.Play ("buttonPressed3");
 				} else if (gameObject.name == "DoorTrigger4") {
 					objectAnimator.Play ("buttonPressed4");
+				} else if (gameObject.name == "Stair Button") {
+					objectAnimator.Play ("stairButtonPressed");
 				}
 				solvedGoal.solved ();
 				solved = true;
