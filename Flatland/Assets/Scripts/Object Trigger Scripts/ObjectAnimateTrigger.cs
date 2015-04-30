@@ -28,7 +28,7 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 
 	void Start()
 	{
-//		objectAnimator = animatedObject.GetComponent<Animator> ();
+		objectAnimator = animatedObject.GetComponent<Animator> ();
 		holdTimerOn = false;
 		holdLimit = 2f;
 		holdTimeLeft = holdLimit;
@@ -124,7 +124,15 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 					shouldHold = true;
 				}
 //				appearingObject.SetActive (true);
-				//objectAnimator.Play();
+				if (gameObject.name == "DoorTrigger1") {
+					objectAnimator.Play ("buttonPressed1");
+				} else if (gameObject.name == "DoorTrigger2") {
+					objectAnimator.Play ("buttonPressed2");
+				} else if (gameObject.name == "DoorTrigger3") {
+					objectAnimator.Play ("buttonPressed3");
+				} else if (gameObject.name == "DoorTrigger4") {
+					objectAnimator.Play ("buttonPressed4");
+				}
 				solvedGoal.solved ();
 				solved = true;
 			}
