@@ -123,18 +123,21 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 					}
 					shouldHold = true;
 				}
-//				appearingObject.SetActive (true);
-				if (gameObject.name == "DoorTrigger1") {
-					objectAnimator.Play ("buttonPressed1");
-				} else if (gameObject.name == "DoorTrigger2") {
-					objectAnimator.Play ("buttonPressed2");
-				} else if (gameObject.name == "DoorTrigger3") {
-					objectAnimator.Play ("buttonPressed3");
-				} else if (gameObject.name == "DoorTrigger4") {
-					objectAnimator.Play ("buttonPressed4");
-				} else if (gameObject.name == "Stair Button") {
-					objectAnimator.Play ("stairButtonPressed");
-				}
+
+
+
+//				if (gameObject.name == "DoorTrigger1") {
+//					objectAnimator.Play ("buttonPressed1");
+//				} else if (gameObject.name == "DoorTrigger2") {
+//					objectAnimator.Play ("buttonPressed2");
+//				} else if (gameObject.name == "DoorTrigger3") {
+//					objectAnimator.Play ("buttonPressed3");
+//				} else if (gameObject.name == "DoorTrigger4") {
+//					objectAnimator.Play ("buttonPressed4");
+//				} else if (gameObject.name == "Stair Button") {
+//					objectAnimator.Play ("stairButtonPressed");
+//				}
+				objectAnimator.SetTrigger("buttonPressed");
 				solvedGoal.solved ();
 				solved = true;
 			}
