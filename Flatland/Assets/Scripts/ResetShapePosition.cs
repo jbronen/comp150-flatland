@@ -4,6 +4,7 @@ using System.Collections;
 public class ResetShapePosition : MonoBehaviour {
 
 	public bool enableRespawn;
+	public GameObject originalParent;
 
 	Vector3 initialPosition;
 	Quaternion initialRotation;
@@ -17,6 +18,7 @@ public class ResetShapePosition : MonoBehaviour {
 
 	public void reset () {
 		if (enableRespawn) {
+			transform.parent = originalParent.transform;
 			transform.position = initialPosition;
 			transform.rotation = initialRotation;
 			rb.velocity = Vector3.zero;

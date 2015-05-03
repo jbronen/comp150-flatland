@@ -13,7 +13,8 @@ public class MoveWithPlatform : MonoBehaviour {
 
 	GameObject solver;
 	PickupObject pickupObject;
-	Vector3 originalScale;
+	Transform newParent;
+	public Vector3 originalScale;
 
 	void Start()
 	{
@@ -25,7 +26,7 @@ public class MoveWithPlatform : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other)
 	{
-		//oldPos = gameObject.transform;
+		oldPos.rotation = gameObject.transform.rotation;
 //		if (gameObject == pickupObject.carriedObject) {
 //			hold = false;
 //			//do nothing
@@ -42,9 +43,12 @@ public class MoveWithPlatform : MonoBehaviour {
 		if (other.gameObject == pickupObject.carriedObject) {
 			//transform.parent = originalParent.transform;
 		} else if (other.gameObject.tag == "Moving Platform") {
-			transform.parent = other.transform;
-			transform.rotation = oldPos.rotation;
-			transform.localScale = oldPos.localScale;
+			newParent = other.transform.FindChild("PlatformChild");
+			if (newParent.name == "PlatformChild") {
+				transform.parent = newParent;
+				transform.rotation = oldPos.rotation;
+				transform.localScale = originalScale;
+			}
 		} else if ((other.gameObject.tag == "Pickup")) {
 			//transform.parent = originalParent.transform;
 		}
@@ -54,7 +58,12 @@ public class MoveWithPlatform : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		transform.localScale = oldPos.localScale;
+		transform.localScale = originalScale;
+		//Debug.Log (gameObject.name);
+		if (gameObject.name == "SphereCir1") {
+			Debug.Log (originalScale);
+			Debug.Log (transform.localScale);
+		}
 	}
 //		if (hold == true) {
 //			offset = (transform.position);

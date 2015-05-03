@@ -113,6 +113,8 @@ public class ObjectDisappearTrigger : MonoBehaviour {
 					}
 				}
 				shouldHold = true;
+				Rigidbody rb = other.GetComponent<Rigidbody>();
+				rb.constraints = RigidbodyConstraints.FreezePosition;
 			}
 			solved = true;
 			solvedGoal.solved ();
