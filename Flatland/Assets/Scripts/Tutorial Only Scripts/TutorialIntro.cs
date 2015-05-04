@@ -9,6 +9,7 @@ public class TutorialIntro : MonoBehaviour {
 	public Canvas welcomeUI;
 	public GameObject tutorialParent;
 	public GameObject goalArea;
+	public GameObject button;
 	public GameObject shape;
 
 	GameController gameController;
@@ -19,6 +20,7 @@ public class TutorialIntro : MonoBehaviour {
 	GameObject solver;
 	PickupObject pickupObject;
 	ObjectAppearTrigger goalScript;
+	ObjectAppearTrigger buttonScript;
 	
 	bool pressedA;
 	bool pressedS;
@@ -32,6 +34,7 @@ public class TutorialIntro : MonoBehaviour {
 		gameController = GetComponent <GameController> ();
 		
 		goalScript = goalArea.GetComponent<ObjectAppearTrigger> ();
+		buttonScript = button.GetComponent<ObjectAppearTrigger> ();
 
 		tutorialLevel = 0;
 		startTutorial = false;
@@ -83,8 +86,10 @@ public class TutorialIntro : MonoBehaviour {
 		} else if (tutorialLevel == 6) {
 			dropTutorial (currInstruction);
 		} else if (tutorialLevel == 7) {
-			matchTutorial (currInstruction);
+			buttonTutorial (currInstruction);
 		} else if (tutorialLevel == 8) {
+			matchTutorial (currInstruction);
+		} else if (tutorialLevel == 9) {
 			portalTutorial (currInstruction);
 		}
 	}
@@ -166,14 +171,25 @@ public class TutorialIntro : MonoBehaviour {
 		}
 	}
 
+	void buttonTutorial(Text instr)
+	{
+		button.SetActive (true);
+		//teach about buttons
+		instr.text = "Purple shapes are buttons - jump on them - green means solved";
+
+		if (buttonScript.isSolved()) {
+			tutorialLevel = 8;
+		}
+	}
+
 	void matchTutorial(Text instr)
 	{
-		goalArea.SetActive (true);
+		//goalArea.SetActive (true);
 		//teach about matching objects to solutions
 		instr.text = "yellow shapes are switches - match the red shape to the yellow shape";
 
 		if (goalScript.isSolved ()) {
-			tutorialLevel = 8;
+			tutorialLevel = 9;
 		}
 	}
 
