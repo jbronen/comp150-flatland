@@ -25,9 +25,11 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 	Collider goalCollider;
 	SolvedGoal solvedGoal;
 	bool shouldHold;
+	bool firstTime;
 
 	void Start()
 	{
+		firstTime = true;
 		objectAnimator = animatedObject.GetComponent<Animator> ();
 		holdTimerOn = false;
 		holdLimit = 2f;
@@ -124,35 +126,34 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 					shouldHold = true;
 				}
 
-
-
-//				if (gameObject.name == "DoorTrigger1") {
-//					objectAnimator.Play ("buttonPressed1");
-//				} else if (gameObject.name == "DoorTrigger2") {
-//					objectAnimator.Play ("buttonPressed2");
-//				} else if (gameObject.name == "DoorTrigger3") {
-//					objectAnimator.Play ("buttonPressed3");
-//				} else if (gameObject.name == "DoorTrigger4") {
-//					objectAnimator.Play ("buttonPressed4");
-//				} else if (gameObject.name == "Stair Button") {
-//					objectAnimator.Play ("stairButtonPressed");
-//				}
-				objectAnimator.SetTrigger("buttonPressed");
-				solvedGoal.solved ();
-				solved = true;
+				if (animatedObject.tag == "Bridge") {
+					if (firstTime) {
+						objectAnimator.SetTrigger ("firstActive");
+						firstTime = false;
+					} else {
+						objectAnimator.SetBool ("bridgeActive", true);
+					}
+				} else {
+					objectAnimator.SetTrigger("buttonPressed");
+					solvedGoal.solved ();
+					solved = true;
+				}
 			}
 		}
 	}
 	
 	void OnTriggerExit(Collider other)
 	{
-		if (!holdTimerOn) {
-			if (other == keyCollider) {
-				
-				holdTimeLeft = holdLimit;
-				holdTimerOn = true;
-				
-				InvokeRepeating ("decreaseTimeRemaining", 1f, 1f);
+		if (animatedObject.tag == "Bridge") {
+			objectAnimator.SetBool ("bridgeActive", false);
+		}
+//		if (!holdTimerOn) {
+//			if (other == keyCollider) {
+//				
+//				holdTimeLeft = holdLimit;
+//				holdTimerOn = true;
+//				
+//				InvokeRepeating ("decreaseTimeRemaining", 1f, 1f);
 //				if (toggle) {
 //					solved = false;
 //					shouldHold = false;
@@ -160,7 +161,7 @@ public class ObjectAnimateTrigger : MonoBehaviour {
 //					appearingObject.SetActive (false);
 //					resetTime ();
 //				}
-			}
-		}
+//			}
+//		}
 	}
 }
