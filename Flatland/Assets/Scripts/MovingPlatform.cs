@@ -7,16 +7,23 @@ public class MovingPlatform : MonoBehaviour {
 	public float middle;
 	public float width;
 	public string axis;
-	bool should_move;
+	public bool should_move;
+	public int waitTime;
+
 	Vector3 movement;
 	//Vector3 axis_vec;
 	int axis_int;
 	float offset;
 	float initialPosition;
 	bool first_time = true;
+	bool doneWaiting = false;
 
 	// Use this for initialization
 	void Start () {
+		//StartCoroutine(waitToStart ());
+		if (waitTime == 0) {
+			doneWaiting = true;
+		}
 		if (axis == "x") {
 			//axis_vec = new Vector3 (1, 0, 0);
 			initialPosition = platform.transform.position.x;
@@ -47,7 +54,12 @@ public class MovingPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (should_move) {
+		if ((should_move) && (first_time)) {
+			Debug.Log("should wait");
+			StartCoroutine (waitToStart ());
+			first_time = false;
+		}
+		if ((should_move) && (doneWaiting)) {
 			movement = platform.transform.position;
 			movement[axis_int] = middle + width * Mathf.Sin (2*Mathf.PI*1/20*(Time.time-offset)); 
 			platform.transform.position = Vector3.Lerp(platform.transform.position,movement,Time.fixedDeltaTime);
@@ -61,5 +73,13 @@ public class MovingPlatform : MonoBehaviour {
 	public void move(bool set) {
 		should_move = set;
 		first_time = false;
+	}
+
+	IEnumerator waitToStart()
+	{
+		Debug.Log ("should be waiting");
+		yield return new WaitForSeconds (2);
+		doneWaiting = true;
+		//Application.LoadLevel (sceneName);
 	}
 }
