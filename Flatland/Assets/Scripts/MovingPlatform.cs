@@ -17,10 +17,9 @@ public class MovingPlatform : MonoBehaviour {
 	float initialPosition;
 	bool first_time = true;
 	bool doneWaiting = false;
-
-	// Use this for initialization
-	void Start () {
-		//StartCoroutine(waitToStart ());
+	
+	void Start () 
+	{
 		if (waitTime == 0) {
 			doneWaiting = true;
 		}
@@ -51,11 +50,10 @@ public class MovingPlatform : MonoBehaviour {
 		}
 
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+	void FixedUpdate ()
+	{
 		if ((should_move) && (first_time)) {
-			Debug.Log("should wait");
 			StartCoroutine (waitToStart ());
 			first_time = false;
 		}
@@ -70,16 +68,15 @@ public class MovingPlatform : MonoBehaviour {
 		}
 	}
 
-	public void move(bool set) {
+	public void move(bool set) 
+	{
 		should_move = set;
 		first_time = false;
 	}
 
 	IEnumerator waitToStart()
 	{
-		Debug.Log ("should be waiting");
 		yield return new WaitForSeconds (2);
 		doneWaiting = true;
-		//Application.LoadLevel (sceneName);
 	}
 }

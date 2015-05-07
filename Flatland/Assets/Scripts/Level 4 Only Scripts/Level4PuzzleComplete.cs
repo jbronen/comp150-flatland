@@ -4,27 +4,20 @@ using System.Collections;
 public class Level4PuzzleComplete : MonoBehaviour {
 
 
-	private GameController gameController;
+	GameController gameController;
+	ObjectAppearTrigger solutionScript;
 
-	public GameObject bridge;
-	public GameObject levelPortal;
-
-	// Use this for initialization
-	void Start () {
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController> ();
-		}
-		if (gameController == null) {
-			Debug.Log ("Cannot find 'GameController' script");
-		}
-	}
+	public GameObject solutionPlatform;
 	
-	// Update is called once per frame
-	void Update () {
-		if (bridge.activeSelf) {
+	void Start () {
+		gameController = GameObject.FindWithTag("GameController").GetComponent <GameController> ();
+		solutionScript = solutionPlatform.GetComponent<ObjectAppearTrigger> ();
+	}
+
+	void Update () 
+	{
+		if (solutionScript.isSolved()) {
 			gameController.puzzleCompleted ();
-			levelPortal.SetActive(true);
 		}
 	}
 }
