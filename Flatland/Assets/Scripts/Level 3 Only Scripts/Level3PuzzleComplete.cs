@@ -23,7 +23,7 @@ public class Level3PuzzleComplete : MonoBehaviour {
 	{
 		if (door.activeSelf == false) {
 			gameController.puzzleCompleted();
-			levelPortal.transform.position = new Vector3 (-.5f, 6f, 40f);
+			levelPortal.SetActive(true);
 		}
 	}
 }
