@@ -13,7 +13,7 @@ public class PickupObject : MonoBehaviour {
 	public Text transformText;
 	public Text regularReticle;
 	public Image pickupReticle;
-	public float rotateSpeed;
+	public float rotateSpeed = 0.9F;
 
 	float distanceToObject;
 	GameObject mainCamera;
@@ -27,7 +27,15 @@ public class PickupObject : MonoBehaviour {
 	int rotation_num;
 	int top, right, front;
 	Vector4 rotation_vec;
-	
+	public Transform toRotation;
+	bool Rotating = false;
+	bool Rotate = false;
+	bool side = true;
+	int presses = 0;
+	int direction = 1;
+	int x = 0, y = 0, z = 0;
+
+
 	void Start()
 	{
 		pickupReticle.enabled = false;
@@ -46,11 +54,13 @@ public class PickupObject : MonoBehaviour {
 		front = 1;
 		
 		rotation_vec = new Vector3 (0, 0, 0);
+		dummy = toRotation.transform; 
 	}
 
 	void Update()
 	{
 		if (holdingObject) {
+			//dummy = carriedObject.transform;
 			rotate (carriedObject);
 			//checkForRotate();
 			if (Input.GetMouseButtonDown (0)) {
@@ -78,83 +88,86 @@ public class PickupObject : MonoBehaviour {
 	{
 		o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * holdingDistance, Time.deltaTime * smooth);
 	}
-	
-	void checkForRotate () {
-		dummy = carriedObject.transform;
-		dummy.LookAt (new Vector3 (mainCamera.transform.position.x, dummy.transform.position.y, mainCamera.transform.position.z));
-		if (Input.GetKeyDown (KeyCode.RightArrow)) {
-			int temp = right;
-			right = front;
-			front = 7 - temp;
-		}  
-		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			int temp = front;
-			front = right;
-			right = 7 - temp;
-			
-		}  
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
-			int temp = front;
-			front = top;
-			top = 7 - temp;
-		}  
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {
-			int temp = top;
-			top = front;
-			front = 7 - temp;
-		}
-		rotate (carriedObject);
-	}
+
 	
 	void rotate(GameObject o)
 	{
-		//use rotation vector (x,y,z)
-		//calculate vector from o.position to maincamera.position
-		//rotate vector by rotation vector
-		//calculate point to look at for LookAt function
-		//use LookAt function
-		Quaternion FromRotation = Quaternion.identity;
-		bool keypress = false;
-		dummy = o.transform;
 		if (Input.GetKeyDown (KeyCode.RightArrow)) {
+			//presses = (presses+1)%4;
+			Rotate = true;
+			toRotation.transform.Rotate (Vector3.up, -90, Space.World);
 			int temp = right;
 			right = front;
 			front = 7-temp;
-			FromRotation = o.transform.rotation;
-			keypress = true;
-		}  
-		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
+		} else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
+			//presses = (presses+1)%4;
+			Rotate = true;
+			toRotation.transform.Rotate (Vector3.up, 90, Space.World);
 			int temp = front;
 			front = right;
 			right = 7-temp;
-			FromRotation = o.transform.rotation;
-			keypress = true;
-		}  
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+		} else if (Input.GetKeyDown (KeyCode.UpArrow)) {
+			//presses = (presses+1)%4;
+			if (right == 1) {
+				toRotation.transform.Rotate (toRotation.transform.forward, direction*90, Space.World);
+			} else if (right == 2) {
+				toRotation.transform.Rotate (toRotation.transform.right, -direction*90, Space.World);
+			} else if (right == 3) {
+				toRotation.transform.Rotate (toRotation.transform.up, -direction*90, Space.World);
+			} else if (right == 4) {
+				toRotation.transform.Rotate (toRotation.transform.up, direction*90, Space.World);
+			} else if (right == 5) {
+				toRotation.transform.Rotate (toRotation.transform.right, direction*90, Space.World);
+			} else if (right == 6) {
+				toRotation.transform.Rotate (toRotation.transform.forward, -direction*90, Space.World);
+			}
 			int temp = top;
 			top = front;
 			front = 7-temp;
-			FromRotation = o.transform.rotation;
-			keypress = true;
-		}  
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {
+			Rotate = true;
+		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
+			//presses = (presses+1)%4;
+			if (right == 1) {
+				toRotation.transform.Rotate (toRotation.transform.forward, -direction*90, Space.World);
+			} else if (right == 2) {
+				toRotation.transform.Rotate (toRotation.transform.right, direction*90, Space.World);
+			} else if (right == 3) {
+				toRotation.transform.Rotate (toRotation.transform.up, direction*90, Space.World);
+			} else if (right == 4) {
+				toRotation.transform.Rotate (toRotation.transform.up, -direction*90, Space.World);
+			} else if (right == 5) {
+				toRotation.transform.Rotate (toRotation.transform.right, -direction*90, Space.World);
+			} else if (right == 6) {
+				toRotation.transform.Rotate (toRotation.transform.forward, direction*90, Space.World);
+			}
 			int temp = front;
 			front = top;
 			top = 7-temp;
-			FromRotation = o.transform.rotation;
-			keypress = true;
+			Rotate = true;
 		}
-		if (keypress) {
-			o.transform.rotation = Quaternion.Slerp (FromRotation, dummy.rotation, Time.time * 0.1F);
-		} else {
-			dummy.LookAt (new Vector3 (mainCamera.transform.position.x, o.transform.position.y, mainCamera.transform.position.z));
+		if (Rotate) {
+			//to.rotation = Quaternion.AngleAxis (90, direction*Vector3.up)*to.rotation;
+			o.transform.rotation = Quaternion.Slerp (o.transform.rotation, toRotation.rotation, 0.002F*rotateSpeed);
+			Debug.Log (o.transform.rotation);
 		}
-		//dummy.LookAt (new Vector3 (mainCamera.transform.position.x, o.transform.position.y, mainCamera.transform.position.z));
-		rotation_vec = rotations [top-1,right-1];
-		dummy.rotation = Quaternion.AngleAxis (rotation_vec.x, dummy.right)*dummy.rotation;
-		dummy.rotation = Quaternion.AngleAxis (rotation_vec.y, dummy.up)*dummy.rotation;
-		dummy.rotation = Quaternion.AngleAxis (rotation_vec.z, dummy.forward)*dummy.rotation;
-		keypress = false;
+		if (o.transform.rotation == toRotation.rotation) {
+			Rotate = false;
+			//direction = 0;
+		}
+		
+		if (!Rotate) {
+			rotation_vec = rotations[top-1,right-1];
+			dummy = o.transform;
+			dummy.transform.LookAt (new Vector3 (mainCamera.transform.position.x, o.transform.position.y, mainCamera.transform.position.z));
+			/*dummy.transform.Rotate(dummy.transform.right, 90*x, Space.World);
+			dummy.transform.Rotate(Vector3.up, 90*y, Space.World);
+			dummy.transform.Rotate(dummy.transform.forward, 90*z, Space.World);*/
+			dummy.transform.Rotate(dummy.transform.right, rotation_vec.x, Space.World);
+			dummy.transform.Rotate(Vector3.up, rotation_vec.y, Space.World);
+			dummy.transform.Rotate(dummy.transform.forward, rotation_vec.z, Space.World);
+			toRotation.transform.rotation = dummy.transform.rotation;
+			o.transform.rotation = dummy.transform.rotation;
+		}
 	}
 	
 	void pickup()
@@ -258,10 +271,10 @@ public class PickupObject : MonoBehaviour {
 		rotations [3, 1] = new Vector3 (180, 0, 0);
 		rotations [3, 4] = new Vector3 (0, 0, 180);
 		rotations [3, 5] = new Vector3 (0, 90, 180);
-		rotations [4, 0] = new Vector3 (-90, -90, 0);
+		rotations [4, 0] = new Vector3 (0, -90, 90);
 		rotations [4, 2] = new Vector3 (0, 0, 90);
 		rotations [4, 3] = new Vector3 (0, 180, 90);
-		rotations [4, 5] = new Vector3 (90, 90, 0);
+		rotations [4, 5] = new Vector3 (0, 90, 90);
 		rotations [5, 1] = new Vector3 (90, 0, 0);
 		rotations [5, 2] = new Vector3 (90, 0, 90);
 		rotations [5, 3] = new Vector3 (90, 0, -90);
