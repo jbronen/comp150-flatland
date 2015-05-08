@@ -109,7 +109,7 @@ public class TutorialIntro : MonoBehaviour {
 			pressedD = true;
 		}
 		
-		if ((pressedA) && (pressedS) && (pressedW) && (pressedD)) {
+		if ((pressedA) || (pressedS) || (pressedW) || (pressedD)) {
 			tutorialLevel = 2;
 		}
 	}
