@@ -234,24 +234,37 @@ public class PickupObject : MonoBehaviour {
 		Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay (new Vector3 (x, y));
 		RaycastHit hit;
 		
-		if (Physics.Raycast (ray, out hit)) {
-			if (hit.collider.tag == "Pickup") {
+		if (Physics.Raycast (ray, out hit)) { //if raycast hits something
+			if (hit.collider.tag == "Pickup") { //if hit is a pickup
 				float distanceToObject = Vector3.Distance (transform.position, hit.transform.position);
-				if (distanceToObject < pickupDistance) {
-					//reticle.color = Color.green; 
-					pickupReticle.enabled = true;
-					regularReticle.enabled = false;
-					pickupText.text = "Left-Click to Pick Up";
-				}  else {
-					pickupText.text = "";
+				if (distanceToObject < pickupDistance) { //if pickup is in range
+					//player can pickup object
+					pickupInRange ();
+
+				} else {
+					pickupOutOfRange ();
 				}
-			}  else {
-				pickupText.text = "";
-				//reticle.color = Color.red;
-				regularReticle.enabled = true;
-				pickupReticle.enabled = false;
+			} else {
+				pickupOutOfRange ();
 			}
-		}  
+		} else {
+			pickupOutOfRange ();
+		}
+	}
+
+	void pickupInRange()
+	{
+		pickupReticle.enabled = true;
+		regularReticle.enabled = false;
+		pickupText.text = "Left-Click to Pick Up";
+	}
+
+	void pickupOutOfRange()
+	{
+		//player cannot pickup object
+		pickupText.text = "";
+		regularReticle.enabled = true;
+		pickupReticle.enabled = false;
 	}
 	
 	void load_rotations() {
